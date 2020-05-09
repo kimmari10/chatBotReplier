@@ -4,8 +4,11 @@ import com.bot.chat.domain.Command;
 import com.bot.chat.domain.CommandRepository;
 import com.bot.chat.dto.ResponseDto;
 import lombok.AllArgsConstructor;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
 import java.util.List;
 
 @Service
@@ -50,22 +53,51 @@ public class CommandService {
         ResponseDto dto = ResponseDto.builder()
                             .success(true)
                             .title(title)
-                            .content(content)
                             .build();
 
         return dto;
     }
 
     public ResponseDto execWeatherCommand(String msg) {
+        final String SEP = ",";
+        String title = msg.replace("!", "");
+        String place = title.replace("날씨", "").trim();
 
+        ResponseDto dto = ResponseDto.builder().build();
 
-        ResponseDto dto = ResponseDto.builder()
-                .success(true)
-                .title("날씨")
-                .content("")
-                .build();
+        String nowTemp, upTemp, downTemp, moist, wind, result = "";
 
-        return dto;
+        Document weatherDom = null;
+
+        try {
+            weatherDom = Jsoup.connect("https://m.search.naver.com/search.naver?query="+place+"날씨").get();
+
+            nowTemp = weatherDom.select(".temperature_text").get(0).text().replace("현재 온도", "").trim();
+            upTemp = weatherDom.select(".up_temperature").text();
+            downTemp = weatherDom.select(".down_temperature").text();
+            moist = weatherDom.select(".type_humidity .figure_result").text();
+            wind = weatherDom.select(".type_wind .figure_result").text();
+
+            if("".equals(nowTemp) || "".equals(upTemp) || "".equals(downTemp) || "".equals(moist) || "".equals(wind)) {
+                System.out.println("null check");
+            } else {
+                dto = ResponseDto.builder()
+                    .success(true)
+                    .title(title)
+                    .content("현재온도 : "+nowTemp)
+                    .content("최고온도 : "+upTemp)
+                    .content("최저온도 : "+downTemp)
+                    .content("습　　도 : "+moist+"%")
+                    .content("바　　람 : "+wind+"m/s")
+                    .build();
+            }
+        } catch (IOException e) {
+            dto.builder().success(false).build();
+            e.printStackTrace();
+        } finally {
+            return dto;
+        }
+
     }
 
     public ResponseDto execCommandContainsKeyword(String msg) {
@@ -73,7 +105,6 @@ public class CommandService {
 
         ResponseDto dto = ResponseDto.builder()
                 .success(true)
-                .content("")
                 .build();
 
         return dto;

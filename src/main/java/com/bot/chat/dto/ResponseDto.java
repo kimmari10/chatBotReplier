@@ -1,24 +1,15 @@
 package com.bot.chat.dto;
 
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+
+import java.util.List;
 
 
-@Getter
-@NoArgsConstructor
+@Builder
+@ToString
 public class ResponseDto {
-    private boolean success;
+    @Builder.Default private boolean success = false;
     private String title;
-    private String content;
-    private boolean isCmdSignal;
-
-    @Builder
-    public ResponseDto(boolean success, String title, String content) {
-        this.success = success;
-        this.title = title;
-        this.content = content;
-    }
+    @Singular private List<String> contents;
 }

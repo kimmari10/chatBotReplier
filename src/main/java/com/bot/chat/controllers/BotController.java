@@ -14,7 +14,7 @@ public class BotController {
     private final String COMMAND_SIGNAL = "!";
     private final CommandService commandService;
 
-    @GetMapping("/api/bot/{msg}")
+    @GetMapping(value = "/api/bot/{msg}")
     public ResponseDto proc(@PathVariable String msg) {
 
         //1. !로시작하는 커맨드인지 확인
@@ -30,7 +30,7 @@ public class BotController {
             ResponseDto dto = ResponseDto.builder()
                     .success(true)
                     .title("title")
-                    .content("content")
+//                    .content("content")
                     .build();
 
             return dto;
