@@ -28,7 +28,6 @@ public class BotController {
         } else {
             commandService.execCommandContainsKeyword(msg);
             ResponseDto dto = ResponseDto.builder()
-                    .success(true)
                     .title("title")
 //                    .content("content")
                     .build();

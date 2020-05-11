@@ -51,7 +51,6 @@ public class CommandService {
 
         //결과 처리
         ResponseDto dto = ResponseDto.builder()
-                            .success(true)
                             .title(title)
                             .build();
 
@@ -63,7 +62,9 @@ public class CommandService {
         String title = msg.replace("!", "");
         String place = title.replace("날씨", "").trim();
 
-        ResponseDto dto = ResponseDto.builder().build();
+        ResponseDto dto = ResponseDto.builder()
+                .title(title)
+                .build();
 
         String nowTemp, upTemp, downTemp, moist, wind, result = "";
 
@@ -81,7 +82,7 @@ public class CommandService {
             if("".equals(nowTemp) || "".equals(upTemp) || "".equals(downTemp) || "".equals(moist) || "".equals(wind)) {
                 System.out.println("null check");
             } else {
-                dto = ResponseDto.builder()
+                dto = dto.toBuilder()
                     .success(true)
                     .title(title)
                     .content("현재온도 : "+nowTemp)
@@ -92,20 +93,27 @@ public class CommandService {
                     .build();
             }
         } catch (IOException e) {
-            dto.builder().success(false).build();
             e.printStackTrace();
         } finally {
+            System.out.println(dto.toString());
             return dto;
         }
 
     }
 
     public ResponseDto execCommandContainsKeyword(String msg) {
+        //명령어 유무 조회
+        ResponseDto dto = ResponseDto.builder().build();
+
+        if(isContainCommandList(msg)) {
 
 
-        ResponseDto dto = ResponseDto.builder()
-                .success(true)
-                .build();
+
+            dto.toBuilder()
+                    .success(true)
+                    .build();
+        }
+
 
         return dto;
     }

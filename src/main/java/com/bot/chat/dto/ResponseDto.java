@@ -6,7 +6,8 @@ import lombok.*;
 import java.util.List;
 
 
-@Builder
+@Builder(toBuilder = true)
+@Getter
 @ToString
 public class ResponseDto {
     @Builder.Default private boolean success = false;
