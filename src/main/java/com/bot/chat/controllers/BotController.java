@@ -14,7 +14,7 @@ public class BotController {
     private final String COMMAND_SIGNAL = "!";
     private final CommandService commandService;
 
-    @GetMapping(value = "/api/bot/{msg}")
+    @GetMapping("/api/bot/{msg}")
     public ResponseDto proc(@PathVariable String msg) {
 
         //1. !로시작하는 커맨드인지 확인

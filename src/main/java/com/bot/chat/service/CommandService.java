@@ -2,6 +2,7 @@ package com.bot.chat.service;
 
 import com.bot.chat.domain.Command;
 import com.bot.chat.domain.CommandRepository;
+import com.bot.chat.dto.ResponseCommandDto;
 import com.bot.chat.dto.ResponseDto;
 import lombok.AllArgsConstructor;
 import org.jsoup.Jsoup;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
@@ -109,12 +111,19 @@ public class CommandService {
 
 
 
-            dto.toBuilder()
+            dto = dto.toBuilder()
                     .success(true)
                     .build();
         }
 
 
         return dto;
+    }
+
+    public List<ResponseCommandDto> getCommandList() {
+        return commandRepository.findAll()
+                .stream()
+                .map(ResponseCommandDto::new)
+                .collect(Collectors.toList());
     }
 }
