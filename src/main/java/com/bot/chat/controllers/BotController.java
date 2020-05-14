@@ -3,6 +3,7 @@ package com.bot.chat.controllers;
 import com.bot.chat.dto.RequestDto;
 import com.bot.chat.dto.ResponseDto;
 import com.bot.chat.service.CommandService;
+import com.bot.chat.service.SenderService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,16 +14,21 @@ public class BotController {
 
     private final String COMMAND_SIGNAL = "!";
     private final CommandService commandService;
+    private final SenderService senderService;
+//    private final MessageService messageService;
 
     @GetMapping("/api/bot/reply")
     public ResponseDto proc(RequestDto requestDto) {
         String msg = requestDto.getMsg();
 
         //1. Sender 저장
+        senderService.saveOrUpdate(requestDto);
 
         //2. Message 저장
+//        messageService.saveMessage(requestDto);
 
         //3. Room 저장
+//        commandService.saveRoom(requestDto);
 
         //4. 메세지 처리
 
