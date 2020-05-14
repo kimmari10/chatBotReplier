@@ -22,4 +22,10 @@ public class IndexController {
         model.addAttribute("commands", list);
         return "index";
     }
+
+    @GetMapping("/save")
+    public String save() {
+
+        return "save";
+    }
 }
