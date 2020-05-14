@@ -18,7 +18,7 @@ public class BotController {
     public ResponseDto proc(RequestDto requestDto) {
         String msg = requestDto.getMsg();
 
-        //1. Sender(Member) 저장
+        //1. Sender 저장
 
         //2. Message 저장
 
