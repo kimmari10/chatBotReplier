@@ -17,6 +17,9 @@ public class Sender {
     @OneToOne(cascade = CascadeType.ALL)
     private Room room;
 
+    @OneToOne(mappedBy = "sender")
+    private Message message;
+
     @Builder
     public Sender(String name, Room room) {
         this.name = name;

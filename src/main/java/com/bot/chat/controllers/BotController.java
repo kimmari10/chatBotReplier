@@ -21,14 +21,8 @@ public class BotController {
     public ResponseDto proc(RequestDto requestDto) {
         String msg = requestDto.getMsg();
 
-        //1. Sender 저장
+        //Sender, Room, Message 저장
         senderService.saveOrUpdate(requestDto);
-
-        //2. Message 저장
-//        messageService.saveMessage(requestDto);
-
-        //3. Room 저장
-//        commandService.saveRoom(requestDto);
 
         //4. 메세지 처리
 
