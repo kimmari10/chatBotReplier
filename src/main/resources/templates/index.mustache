@@ -19,15 +19,19 @@
     <table class="table table-horizontal table-bordered">
         <thead class="thead-strong">
         <tr>
+            <th>번호</th>
             <th style="background:#ddd">명령어</th>
             <th>답변메세지</th>
+            <th>시스템명령어여부</th>
         </tr>
         </thead>
         <tbody id="tbody">
         {{#commands}}
             <tr>
+                <td>{{id}}</td>
                 <td>{{title}}</td>
                 <td>{{content}}</td>
+                <td>{{signalYn}}</td>
             </tr>
         {{/commands}}
         </tbody>

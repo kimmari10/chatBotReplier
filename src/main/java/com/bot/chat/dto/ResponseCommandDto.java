@@ -9,11 +9,15 @@ import lombok.ToString;
 @Getter
 @ToString
 public class ResponseCommandDto {
+    private long id;
     private String command;
     private String content;
+    private String signalYn;
 
     public ResponseCommandDto(Command entity) {
+        this.id = entity.getId();
         this.command = entity.getCommand();
         this.content = entity.getContent();
+        this.signalYn = entity.getSignalYn();
     }
 }

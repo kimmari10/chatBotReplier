@@ -5,6 +5,7 @@ import com.bot.chat.domain.CommandRepository;
 import com.bot.chat.dto.ResponseCommandDto;
 import com.bot.chat.dto.ResponseDto;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.springframework.stereotype.Service;
@@ -15,11 +16,14 @@ import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
+@Slf4j
 public class CommandService {
 
     private final CommandRepository commandRepository;
 
     public boolean isContainCommandList(String msg) {
+        log.debug(" >>>> isContainCommandList");
+
         boolean isContain = false;
         String cmdKeyword = "";
 
@@ -38,12 +42,26 @@ public class CommandService {
 
 
     public ResponseDto execCommand(String msg) {
+        log.debug(" >>>> execCommand");
+
         String title = "";
         String content = "";
+
+        Command cmd = Command.builder()
+                .title("도움말")
+                .command("도움말")
+                .content("!도움말을 쳐보세요.")
+                .signalYn("Y")
+                .build();
+
+
+//        commandRepository.save(cmd);
 
         //명령어 유효여부
         if("!도움말".equals(msg)) {
             //TODO 명령어 소개 메세지
+
+
 
         } else if(isContainCommandList(msg)) {
             //TODO !명령어 처리
