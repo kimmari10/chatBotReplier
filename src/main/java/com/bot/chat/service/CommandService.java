@@ -47,12 +47,12 @@ public class CommandService {
         String title = "";
         String content = "";
 
-        Command cmd = Command.builder()
-                .title("도움말")
-                .command("도움말")
-                .content("!도움말을 쳐보세요.")
-                .signalYn("Y")
-                .build();
+//        Command cmd = Command.builder()
+//                .title("도움말")
+//                .command("도움말")
+//                .content("!도움말을 쳐보세요.")
+//                .signalYn("Y")
+//                .build();
 
 
 //        commandRepository.save(cmd);

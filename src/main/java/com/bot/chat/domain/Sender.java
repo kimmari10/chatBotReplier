@@ -3,6 +3,7 @@ package com.bot.chat.domain;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Getter
 @NoArgsConstructor
@@ -17,8 +18,8 @@ public class Sender {
     @OneToOne(cascade = CascadeType.ALL)
     private Room room;
 
-    @OneToOne(mappedBy = "sender")
-    private Message message;
+    @OneToMany(mappedBy = "sender")
+    private List<Message> messages;
 
     @Builder
     public Sender(String name, Room room) {
