@@ -1,6 +1,8 @@
 package com.bot.chat.service;
 
 import com.bot.chat.domain.*;
+import com.bot.chat.domain.repositories.MessageRepository;
+import com.bot.chat.domain.repositories.SenderRepository;
 import com.bot.chat.dto.RequestDto;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;

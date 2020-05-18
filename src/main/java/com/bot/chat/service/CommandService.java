@@ -1,7 +1,7 @@
 package com.bot.chat.service;
 
 import com.bot.chat.domain.Command;
-import com.bot.chat.domain.CommandRepository;
+import com.bot.chat.domain.repositories.CommandRepository;
 import com.bot.chat.dto.ResponseCommandDto;
 import com.bot.chat.dto.ResponseDto;
 import lombok.AllArgsConstructor;

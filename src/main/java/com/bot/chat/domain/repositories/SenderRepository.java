@@ -1,5 +1,6 @@
-package com.bot.chat.domain;
+package com.bot.chat.domain.repositories;
 
+import com.bot.chat.domain.Sender;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

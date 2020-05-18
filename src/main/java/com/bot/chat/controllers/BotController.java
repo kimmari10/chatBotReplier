@@ -24,10 +24,10 @@ public class BotController {
         //Sender, Room, Message 저장
         senderService.saveOrUpdate(requestDto);
 
-        //4. 메세지 처리
+        //메세지 처리
         commandService.execCommand(msg);
 
-        //4-1. !로시작하는 커맨드인지 확인
+        //!로시작하는 커맨드인지 확인
         if(msg.startsWith(COMMAND_SIGNAL)) {
 
             if(msg.endsWith("날씨")) {
