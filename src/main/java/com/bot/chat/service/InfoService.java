@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @AllArgsConstructor
-public class SenderService {
+public class InfoService {
 
     private final SenderRepository senderRepository;
     private final MessageRepository messageRepository;
