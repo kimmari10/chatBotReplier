@@ -1,13 +1,17 @@
 package com.bot.chat.domain;
 
-import lombok.*;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
+
 @Getter
-@NoArgsConstructor
 @Entity
+@NoArgsConstructor
 public class Sender {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,15 +19,16 @@ public class Sender {
     
     private String name;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     private Room room;
 
     @OneToMany(mappedBy = "sender")
-    private List<Message> messages;
+    private List<Message> messages = new ArrayList<>();
 
     @Builder
-    public Sender(String name, Room room) {
+    public Sender(String name, Room room, List<Message> messages) {
         this.name = name;
         this.room = room;
+        this.messages = messages;
     }
 }

@@ -3,8 +3,12 @@ package com.bot.chat.domain;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Singular;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+
 
 @Getter
 @Entity
@@ -18,13 +22,14 @@ public class Room {
 
     private String groupChatYn;
 
-    @OneToOne(mappedBy = "room")
-    Sender sender;
+    @OneToMany(mappedBy = "room")
+    @Singular("sender")
+    private List<Sender> senders = new ArrayList<>();
 
     @Builder(toBuilder = true)
-    public Room(String name, String groupChatYn, Sender sender) {
+    public Room(String name, String groupChatYn, List<Sender> senders) {
         this.name = name;
         this.groupChatYn = groupChatYn;
-        this.sender = sender;
+        this.senders = senders;
     }
 }

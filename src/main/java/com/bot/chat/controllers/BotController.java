@@ -2,8 +2,8 @@ package com.bot.chat.controllers;
 
 import com.bot.chat.dto.RequestDto;
 import com.bot.chat.dto.ResponseDto;
-import com.bot.chat.service.ReplyService;
 import com.bot.chat.service.InfoService;
+import com.bot.chat.service.ReplyService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;

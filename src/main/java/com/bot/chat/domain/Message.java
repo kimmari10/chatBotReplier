@@ -5,7 +5,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 @Getter
 @Entity
@@ -18,7 +17,7 @@ public class Message extends TimeEntity{
     private String content;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    Sender sender;
+    private Sender sender;
 
     @Builder(toBuilder = true)
     public Message(String content, Sender sender) {
