@@ -1,0 +1,53 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Yeon+Sung&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Gothic:wght@400;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
+
+
+
+/* browser initialize : 브라우저 초기화 */
+html, body, div, span, object, iframe, h1, h2, h3, h4, p, a, code, em, img, strong, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video, hr, input, select, textarea, button {margin:0; padding:0; border:none; list-style:none;  font-family:"Nanum Gothic","tahoma","malgun gothic","san-serif"; background:transparent;}
+img, li, header, nav, section, article, aside {transition: all 0.3s ease .05s; font-family:'Nanum Gothic', sans-serif; color: #222; }
+a {outline:none; cursor:pointer; text-decoration:none;}
+table {border-collapse:collapse; border-spacing:0; }
+input[type=text], input[type=password], input[type=number], input[type=file], select, textarea {width: 100%; height: 40px; color: #fff; font-size: 18px; padding: 5px 7px; background: rgba(255,255,255,0.3); border-radius: 3px; vertical-align: middle;}
+textarea {height: 100px; resize: none;}
+html {overflow-y: scroll; overflow-x: hidden; font-size: 14px;}
+body {word-break: keep-all; overflow-x: hidden;}
+* {box-sizing: border-box; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); -webkit-touch-callout: none;}
+
+
+
+/*************************************************
+                      layout
+*************************************************/
+header {height: 10vh; border-bottom: 1px solid #ebebeb;}
+header .box {padding-top: 20px;}
+header h1 {font-size: 1rem;}
+header h1 .appNm {display: inline-block; background: #f1c40f; margin-right: 5px; font-weight: 700;}
+header h1 .tit {display:block; margin-top: 2px; font-family: "Black Han Sans"; font-size: 2.3rem;}
+.contents {min-height: 90vh; padding: 50px 0 70px; background: url(/img/bg.jpg) center center/cover no-repeat fixed #fefefe;}
+section {margin: auto;}
+section .command-list {display: flex; flex-wrap: wrap;}
+section .command-list li {position: relative; width:100%; height:280px; margin: 0 2.5rem 2.5rem 0; background: #fff; border-radius: 0.5rem; box-shadow: inset 0px 0px 0px 1px rgba(0,0,0,.2), 0 1px 10px rgba(0, 0, 0, .15); padding: 1.3rem 1.4rem;}
+section .command-list li .cmnd {margin:0 -1.4rem 0.8rem 0; border-bottom: 1px dashed #ddd; font-family: "Black Han Sans"; font-size: 2rem;}
+section .command-list li .no {position: absolute; top: 8px; left: -10px; width: 25px; height: 25px; background: #f1c40f; border-radius: 2rem; text-align:center; color:#fff; font-weight: 700; line-height: 25px; letter-spacing: -0.5px;}
+section .command-list li .msg {font-size: 0.9rem; color: #444; line-height: 160%;}
+@media screen and (min-width: 768px) {
+    section .command-list li {flex: 0 0 calc((100% - 7.5rem) / 2);}
+
+}
+@media screen and (min-width: 1024px) {
+    section .command-list li {flex: 0 0 calc((100% - 7.5rem) / 3);}
+
+}
+@media screen and (min-width: 1200px) {
+    header .box {width: 1200px; margin: auto;}
+    section {width: 1200px; margin: auto;}
+    section .command-list li {flex: 0 0 calc((100% - 7.5rem) / 4); margin: 0 2.5rem 2.5rem 0;}
+    section .command-list li:nth-child(4n) {margin-right: 0;}
+}
+
+/*************************************************
+                      common
+*************************************************/
