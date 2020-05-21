@@ -49,7 +49,9 @@ public class BotController {
     public boolean isSystemCommand(String msg) {
         return msg.startsWith(COMMAND_SIGNAL);
     }
+
     public boolean isWeatherCommand(String msg) {
         return msg.startsWith(COMMAND_SIGNAL) && msg.endsWith("날씨");
     }
+
 }
