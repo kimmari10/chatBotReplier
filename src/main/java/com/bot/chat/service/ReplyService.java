@@ -85,7 +85,7 @@ public class ReplyService {
                     .contents(commandList)
                     .build();
 
-        } else if(isContainCommandList(msg)) {
+        } else {
             //TODO !명령어 처리
 
         }
@@ -96,39 +96,18 @@ public class ReplyService {
     public ResponseDto execContainsKeywordCommand(String msg) {
         //명령어 유무 조회
         ResponseDto dto = ResponseDto.builder().build();
+        ResponseCommandDto commandDto = commandRepository.findByKeyword(msg);
 
-        if(isContainCommandList(msg)) {
-
-
-
+        if(commandDto != null) {
             dto = dto.toBuilder()
                     .success(true)
+                    .title(commandDto.getTitle())
+                    .content(commandDto.getContent())
                     .build();
         }
 
-
         return dto;
     }
-
-    public boolean isContainCommandList(String msg) {
-        log.debug(" >>>> isContainCommandList");
-
-        boolean isContain = false;
-        String cmdKeyword = "";
-
-        //명령어 리스트 조회
-        List<Command> commandList = commandRepository.findAll();
-        for (Command command : commandList) {
-            cmdKeyword = command.getCommand();
-
-            //DB에 저장된 명령어가 메세지에 포함되는지
-            if(cmdKeyword.indexOf(msg) > 0) {
-                isContain = true;
-            }
-        }
-        return isContain;
-    }
-
 
     public List<ResponseCommandDto> getCommandList() {
         return commandRepository.findAll()

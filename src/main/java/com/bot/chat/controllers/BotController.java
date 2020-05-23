@@ -36,13 +36,7 @@ public class BotController {
         } else {
             log.info(" >>>> 포함단어 처리");
 
-            replyService.execContainsKeywordCommand(msg);
-            ResponseDto dto = ResponseDto.builder()
-                    .title("title")
-                    .content("")
-                    .build();
-
-            return dto;
+            return replyService.execContainsKeywordCommand(msg);
         }
     }
 
@@ -51,7 +45,7 @@ public class BotController {
     }
 
     public boolean isWeatherCommand(String msg) {
-        return msg.startsWith(COMMAND_SIGNAL) && msg.endsWith("날씨");
+        return isSystemCommand(msg) && msg.endsWith("날씨");
     }
 
 }
