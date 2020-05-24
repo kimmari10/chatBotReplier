@@ -2,6 +2,7 @@ package com.bot.chat.service;
 
 import com.bot.chat.domain.Command;
 import com.bot.chat.domain.repositories.CommandRepository;
+import com.bot.chat.dto.RequestDto;
 import com.bot.chat.dto.ResponseCommandDto;
 import com.bot.chat.dto.ResponseDto;
 import lombok.AllArgsConstructor;
@@ -93,16 +94,26 @@ public class ReplyService {
         return dto;
     }
 
-    public ResponseDto execContainsKeywordCommand(String msg) {
+    public ResponseDto execContainsKeywordCommand(RequestDto requestDto) {
         //명령어 유무 조회
+        String msg = requestDto.getMsg();
+        String sender = requestDto.getSender();
+
         ResponseDto dto = ResponseDto.builder().build();
         ResponseCommandDto commandDto = commandRepository.findByKeyword(msg);
 
         if(commandDto != null) {
+            String title = commandDto.getTitle();
+            String content = commandDto.getContent();
+
+            if(title.equals("무복")) {
+                content = sender + " " + content;
+            }
+
             dto = dto.toBuilder()
                     .success(true)
-                    .title(commandDto.getTitle())
-                    .content(commandDto.getContent())
+                    .title(title)
+                    .content(content)
                     .build();
         }
 

@@ -36,7 +36,7 @@ public class BotController {
         } else {
             log.info(" >>>> 포함단어 처리");
 
-            return replyService.execContainsKeywordCommand(msg);
+            return replyService.execContainsKeywordCommand(requestDto);
         }
     }
 
