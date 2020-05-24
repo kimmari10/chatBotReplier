@@ -1,19 +1,19 @@
 @charset "utf-8";
-@import url('https://fonts.googleapis.com/css2?family=Yeon+Sung&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Gothic:wght@400;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
+@import url('http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css');
 
 
 
 /* browser initialize : 브라우저 초기화 */
 html, body, div, span, object, iframe, h1, h2, h3, h4, p, a, code, em, img, strong, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video, hr, input, select, textarea, button {margin:0; padding:0; border:none; list-style:none;  font-family:"Nanum Gothic","tahoma","malgun gothic","san-serif"; background:transparent;}
-img, li, header, nav, section, article, aside {transition: all 0.3s ease .05s; font-family:'Nanum Gothic', sans-serif; color: #222; }
-a {outline:none; cursor:pointer; text-decoration:none;}
+img, header, nav, section, article, aside, i, a, :before, :after {transition: all 0.3s ease .05s; font-family:'Nanum Gothic', sans-serif; color: #222; }
+a, a:hover {cursor:pointer; text-decoration:none; color: #222;}
 table {border-collapse:collapse; border-spacing:0; }
 input[type=text], input[type=password], input[type=number], input[type=file], select, textarea {width: 100%; height: 40px; color: #fff; font-size: 18px; padding: 5px 7px; background: rgba(255,255,255,0.3); border-radius: 3px; vertical-align: middle;}
 textarea {height: 100px; resize: none;}
 html {overflow-y: scroll; overflow-x: hidden; font-size: 14px;}
-body {word-break: keep-all; overflow-x: hidden;}
+body {word-break: keep-all;}
 * {box-sizing: border-box; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); -webkit-touch-callout: none;}
 
 
@@ -21,33 +21,95 @@ body {word-break: keep-all; overflow-x: hidden;}
 /*************************************************
                       layout
 *************************************************/
-header {height: 10vh; border-bottom: 1px solid #ebebeb;}
-header .box {padding-top: 20px;}
-header h1 {font-size: 1rem;}
+header {height: 9vh; border-bottom: 1px solid #ebebeb;}
+header .box {position: relative; width:90vw; margin:auto;}
+header h1 {float: left; margin-top: 15px; font-size: 1rem;}
 header h1 .appNm {display: inline-block; background: #f1c40f; margin-right: 5px; font-weight: 700;}
-header h1 .tit {display:block; margin-top: 2px; font-family: "Black Han Sans"; font-size: 2.3rem;}
-.contents {min-height: 90vh; padding: 50px 0 70px; background: url(/img/bg.jpg) center center/cover no-repeat fixed #fefefe;}
-section {margin: auto;}
-section .command-list {display: flex; flex-wrap: wrap;}
-section .command-list li {position: relative; width:100%; height:280px; margin: 0 2.5rem 2.5rem 0; background: #fff; border-radius: 0.5rem; box-shadow: inset 0px 0px 0px 1px rgba(0,0,0,.2), 0 1px 10px rgba(0, 0, 0, .15); padding: 1.3rem 1.4rem;}
-section .command-list li .cmnd {margin:0 -1.4rem 0.8rem 0; border-bottom: 1px dashed #ddd; font-family: "Black Han Sans"; font-size: 2rem;}
-section .command-list li .no {position: absolute; top: 8px; left: -10px; width: 25px; height: 25px; background: #f1c40f; border-radius: 2rem; text-align:center; color:#fff; font-weight: 700; line-height: 25px; letter-spacing: -0.5px;}
-section .command-list li .msg {font-size: 0.9rem; color: #444; line-height: 160%;}
+header h1 .tit {display: block; margin-top: 2px; font-family: "Black Han Sans"; font-size: 2.3rem;}
+header .btn_navi {position: absolute; top: 15px; right: 0; height:50px; font-size:0;}
+header .btn_navi:before {content:''; font-family: "FontAwesome"; content: '\f0c9'; font-size:2.5rem;}
+header .btn_navi:hover:before {color: #f1c40f}
+nav {position:fixed; top:0; right:0; width:100%; height:100%; z-index:10; background:rgba(0,0,0,0.8); display: flex; align-items: center; justify-content: center; transform:translate(100%, 0);}
+nav ul {position: relative;}
+nav ul:before, nav ul:after {content: ''; position: absolute; background: url(/img/ani_imgs.svg) no-repeat 0 0/200px 60px;}
+nav ul:before {top: -15px; left: -45px; width: 46px; height: 60px; background-position: -90px center; animation: smoke 5s ease-out 1s infinite;}
+nav ul:after {top: -63px; left: -90px; width: 60px; height: 60px; background-position: 0 center; animation: smoke 5s ease-out 1.2s infinite;}
+nav ul li {font-size: 2.7rem; text-align: center; text-decoration: underline;}
+nav ul li a {position:relative; font-family: "Black Han Sans"; color: #fff;}
+nav ul li a:hover {color: #f1c40f;}
+nav ul li a:hover:after {content: ''; position: absolute; width:50px; height:50px; background: url(/img/ani_imgs.svg) no-repeat -135px 0px/170px 50px;}
+nav .btn_closeNavi {position:absolute; top: 2rem; right: 2rem; width: 5rem; height: 5rem; text-align: center; line-height: 5rem;}
+nav .btn_closeNavi:before {content: '\f05c'; font-family: "FontAwesome"; font-size: 4rem; color: #fff;}
+nav.active_nav {transform:translate(0, 0)}
+.contents {min-height: 91vh; padding: 50px 0 70px; background: url(/img/bg.jpg) center center/cover no-repeat fixed #fefefe;}
+.title {margin-bottom: 2rem; text-decoration: underline; font-family: "Black Han Sans"; font-size: 2.7rem; text-align: center;}
+section {width:90vw; margin: auto;}
+
+@media screen and (min-width: 1200px) {
+    header {height:10.5vh; }
+    header h1 {margin-top: 22px;}
+    header .btn_navi {top:23px;}
+    .contents {min-height: 89.5vh;}
+    .title {position: absolute; top: 2rem; left: 50%; width: 30vw; margin-left: -15vw;}
+}
+@keyframes smoke {
+    0% {transform:scale(0.3, 0.3) rotate(-20deg) translate(70px, 00px); opacity:0;}
+    10% {transform:scale(1, 1) rotate(0deg) translate(0, 0); opacity:1;}
+    95% {transform:scale(1, 1) rotate(0deg) translate(0, 0); opacity:1;}
+    100% {transform:scale(0.7, 0.7) rotate(20deg) translate(-10px, -10px); opacity:0;}
+}
+
+
+
+/*************************************************
+                      contents
+*************************************************/
+/* 명령어 리스트 */
+.command-list {clear:both; display: flex; flex-wrap: wrap;}
+.command-list li {position: relative; width:100%; height:240px; margin-bottom: 2.5rem; background: #fff; border-radius: 0.5rem; box-shadow: inset 0px 0px 0px 1px rgba(0,0,0,.2), 0 1px 10px rgba(0, 0, 0, .15); padding: 1.3rem 1.4rem;}
+.command-list li .cmnd {margin:0 -1.4rem 0.8rem 0; border-bottom: 1px dashed #ddd; font-family: "Black Han Sans"; font-size: 2rem;}
+.command-list li .cmnd::first-letter {color:#594941;}
+.command-list li .no {position: absolute; top: 8px; left: -10px; width: 25px; height: 25px; background: #f1c40f; border-radius: 2rem; text-align:center; color:#fff; font-weight: 700; line-height: 25px; letter-spacing: -0.5px;}
+.command-list li .msg {font-size: 0.9rem; color: #444; line-height: 160%;}
+.command-list li .sign {font-size:0; }
+.command-list li.system {background: url(/img/bg_system.svg) no-repeat right bottom #fff;}
+.command-list li.system .sign {position: absolute; bottom: 0; right: 0; padding: 0.9rem 0.7rem 0.4rem 1.2rem; border-radius: 100% 0 0.5em 0; background: #594941; font-size: 0.8rem; font-weight: 700; color:#fff;}
+
+.command_menu {font-size:0; text-align: center; margin: 0px 0 20px;}
+.command_menu li {position: relative; display: inline-block; vertical-align: middle; font-size:1rem;}
+.command_menu li a {display: inline-block; height: 2rem;}
+.command_menu .cmd_all a,
+.command_menu .cmd_general a,
+.command_menu .cmd_system a {margin-left: 7px; padding: 0.23rem 0.8rem; border: 1px solid #333; border-radius: 10px; font-size: 0.8rem; font-weight: 600; font-size: 1rem;}
+.command_menu .cmd_all a.on:before,
+.command_menu .cmd_general a.on:before,
+.command_menu .cmd_system a.on:before {content: ' '; position: absolute; top: 7px; left: 50%; width: 46px; height: 1rem; margin-left:-19px;  background: #f1c40f; z-index: -1;}
+.command_menu .cmd_all a.on:before {width: 20px; margin-left:-7px;}
+.command_menu .vt_card a, .command_menu .vt_keyword a {margin-left: 15px; padding-top: 3px; font-size: 0; text-align: center;}
+.command_menu .vt_card a:before,
+.command_menu .vt_keyword a:before {margin-top:3px; font-family: "FontAwesome"; font-size: 23px; line-height: 100%;}
+.command_menu .vt_card a:before {content: '\f009';}
+.command_menu .vt_keyword a:before {content: '\f037';}
+.command_menu .vt_card a.on:before,
+.command_menu .vt_keyword a.on:before {color: #f1c40f;}
+
 @media screen and (min-width: 768px) {
-    section .command-list li {flex: 0 0 calc((100% - 7.5rem) / 2);}
+    .command_menu {text-align: right; margin: -25px 0 20px;}
+    .command-list li {flex: 0 0 calc((100% - 2.5rem) / 2);}
+    .command-list li {margin-right: 2.5rem;}
+    .command-list li:nth-child(2n) {margin-right: 0;}
 
 }
 @media screen and (min-width: 1024px) {
-    section .command-list li {flex: 0 0 calc((100% - 7.5rem) / 3);}
+    .command-list li {flex: 0 0 calc((100% - 5.0rem) / 3);}
+    .command-list li:nth-child(2n) {margin-right: 2.5rem;}
+    .command-list li:nth-child(3n) {margin-right: 0;}
 
 }
 @media screen and (min-width: 1200px) {
-    header .box {width: 1200px; margin: auto;}
-    section {width: 1200px; margin: auto;}
-    section .command-list li {flex: 0 0 calc((100% - 7.5rem) / 4); margin: 0 2.5rem 2.5rem 0;}
-    section .command-list li:nth-child(4n) {margin-right: 0;}
+    .cmd_list {width: 1200px; margin: auto;}
+    .command_menu {position:absolute; top:34px; right:8.3vw; margin:0; padding-right: 1.1rem; border-right: 1px solid;}
+    .command-list li {flex: 0 0 calc((100% - 7.5rem) / 4);}
+    .command-list li:nth-child(3n) {margin-right: 2.5rem;}
+    .command-list li:nth-child(4n) {margin-right: 0;}
 }
-
-/*************************************************
-                      common
-*************************************************/
