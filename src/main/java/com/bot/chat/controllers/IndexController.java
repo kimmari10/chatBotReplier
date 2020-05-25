@@ -23,9 +23,18 @@ public class IndexController {
         return "index";
     }
 
-    @GetMapping("/save")
-    public String save() {
+    @GetMapping("/command/list")
+    public String commandList() {
+        return "command/list";
+    }
 
-        return "save";
+    @GetMapping("/command/save")
+    public String commandSave() {
+        return "command/save";
+    }
+
+    @GetMapping("/message/list")
+    public String messageList() {
+        return "message/list";
     }
 }

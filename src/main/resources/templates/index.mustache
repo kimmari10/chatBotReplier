@@ -6,165 +6,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=yes" name="viewport">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../../static/css/style.css">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script src="js/common.js"></script>
+    <script src="../../static/js/common.js"></script>
 </head>
 <body>
 
-<header>
-    <div class="box">
-        <h1><span class="appNm">카카오톡</span><span class="tit">오픈챗 봇</span></h1>
-        <a href="" class="btn_navi"><i>네비게이션</i></a>
-    </div>
-    <!-- navigation -->
-    <nav>
-        <ul>
-            <li><a href="#">명령어 리스트</a></li>
-            <li><a href="#">다른 메뉴 리스트</a></li>
-            <li><a href="#">또 다른 메뉴 리스트</a></li>
-        </ul>
-        <a href="#" class="btn_closeNavi">닫기</a>
-    </nav>
-    <!-- //navigation -->
-</header>
-
 <div class="contents">
-    <h2 class="title">명령어 리스트</h2>
 
-    <section>
-        <ul class="command_menu">
-            <li class="cmd_all"><a href="#" class="on">All</a></li>
-            <li class="cmd_general"><a href="#">메시지</a></li>
-            <li class="cmd_system"><a href="#">!메시지</a></li>
-            <li class="vt_card"><a href="#" class="on">카드형식 뷰</a></li>
-            <li class="vt_keyword"><a href="#">키워드형식 뷰</a></li>
-        </ul>
+    1. command list
 
-        <ul class="command-list">
-        <!-- 목록 출력 영역 -->
-        {{#commands}}
-            <li>
-                <div class="cmnd">{{command}}</div>
-                <div class="no">{{id}}</div>
-                <div class="msg">{{content}}</div>
-                <div class="sign">{{signalYn}}</div>
-            </li>
-        {{/commands}}
-        <!-- 디자인확인 위해 임시로 넣어둠 -->
-            <li>
-                <div class="cmnd">날씨</div>
-                <div class="no">1</div>
-                <div class="msg">
-                    전라남도 나주시 산포면 매성리 (목요일) 오후 10:00<br>
-                    오늘 늦은 밤부터 서울.경기북부와 강원영서북부 빗방울<br>
-                    ○ 현재(22시), 전국이 구름많고, 황해도 부근에서 비구름대가 시속 45km로 동남동진하고 있습니다.
-                </div>
-                <div class="sign">No시스템</div>
-            </li>
-            <li>
-                <div class="cmnd">공지사항</div>
-                <div class="no">2</div>
-                <div class="msg">
-                    전라남도 나주시 산포면 매성리 (목요일) 오후 10:00<br>
-                    오늘 늦은 밤부터 서울.경기북부와 강원영서북부 빗방울<br>
-                    ○ 현재(22시), 전국이 구름많고, 황해도 부근에서 비구름대가 시속 45km로 동남동진하고 있습니다.
-                </div>
-                <div class="sign">시스템</div>
-            </li>
-            <li>
-                <div class="cmnd">날씨</div>
-                <div class="no">3</div>
-                <div class="msg">
-                    전라남도 나주시 산포면 매성리 (목요일) 오후 10:00<br>
-                    오늘 늦은 밤부터 서울.경기북부와 강원영서북부 빗방울<br>
-                    ○ 현재(22시), 전국이 구름많고, 황해도 부근에서 비구름대가 시속 45km로 동남동진하고 있습니다.
-                </div>
-                <div class="sign">No시스템</div>
-            </li>
-            <li>
-                <div class="cmnd">날씨</div>
-                <div class="no">4</div>
-                <div class="msg">
-                    전라남도 나주시 산포면 매성리 (목요일) 오후 10:00<br>
-                    오늘 늦은 밤부터 서울.경기북부와 강원영서북부 빗방울<br>
-                    ○ 현재(22시), 전국이 구름많고, 황해도 부근에서 비구름대가 시속 45km로 동남동진하고 있습니다.
-                </div>
-                <div class="sign">시스템</div>
-            </li>
-            <li>
-                <div class="cmnd">날씨</div>
-                <div class="no">5</div>
-                <div class="msg">
-                    전라남도 나주시 산포면 매성리 (목요일) 오후 10:00<br>
-                    오늘 늦은 밤부터 서울.경기북부와 강원영서북부 빗방울<br>
-                    ○ 현재(22시), 전국이 구름많고, 황해도 부근에서 비구름대가 시속 45km로 동남동진하고 있습니다.
-                </div>
-                <div class="sign">No시스템</div>
-            </li>
-            <li>
-                <div class="cmnd">날씨</div>
-                <div class="no">6</div>
-                <div class="msg">
-                    전라남도 나주시 산포면 매성리 (목요일) 오후 10:00<br>
-                    오늘 늦은 밤부터 서울.경기북부와 강원영서북부 빗방울<br>
-                    ○ 현재(22시), 전국이 구름많고, 황해도 부근에서 비구름대가 시속 45km로 동남동진하고 있습니다.
-                </div>
-                <div class="sign">No시스템</div>
-            </li>
-            <li>
-                <div class="cmnd">날씨</div>
-                <div class="no">7</div>
-                <div class="msg">
-                    전라남도 나주시 산포면 매성리 (목요일) 오후 10:00<br>
-                    오늘 늦은 밤부터 서울.경기북부와 강원영서북부 빗방울<br>
-                    ○ 현재(22시), 전국이 구름많고, 황해도 부근에서 비구름대가 시속 45km로 동남동진하고 있습니다.
-                </div>
-                <div class="sign">No시스템</div>
-            </li>
-            <li>
-                <div class="cmnd">날씨</div>
-                <div class="no">8</div>
-                <div class="msg">
-                    전라남도 나주시 산포면 매성리 (목요일) 오후 10:00<br>
-                    오늘 늦은 밤부터 서울.경기북부와 강원영서북부 빗방울<br>
-                    ○ 현재(22시), 전국이 구름많고, 황해도 부근에서 비구름대가 시속 45km로 동남동진하고 있습니다.
-                </div>
-                <div class="sign">No시스템</div>
-            </li>
-            <li>
-                <div class="cmnd">날씨</div>
-                <div class="no">9</div>
-                <div class="msg">
-                    전라남도 나주시 산포면 매성리 (목요일) 오후 10:00<br>
-                    오늘 늦은 밤부터 서울.경기북부와 강원영서북부 빗방울<br>
-                    ○ 현재(22시), 전국이 구름많고, 황해도 부근에서 비구름대가 시속 45km로 동남동진하고 있습니다.
-                </div>
-                <div class="sign">No시스템</div>
-            </li>
-            <li>
-                <div class="cmnd">날씨</div>
-                <div class="no">10</div>
-                <div class="msg">
-                    전라남도 나주시 산포면 매성리 (목요일) 오후 10:00<br>
-                    오늘 늦은 밤부터 서울.경기북부와 강원영서북부 빗방울<br>
-                    ○ 현재(22시), 전국이 구름많고, 황해도 부근에서 비구름대가 시속 45km로 동남동진하고 있습니다.
-                </div>
-                <div class="sign">No시스템</div>
-            </li>
-            <li>
-                <div class="cmnd">날씨</div>
-                <div class="no">20</div>
-                <div class="msg">
-                    전라남도 나주시 산포면 매성리 (목요일) 오후 10:00<br>
-                    오늘 늦은 밤부터 서울.경기북부와 강원영서북부 빗방울<br>
-                    ○ 현재(22시), 전국이 구름많고, 황해도 부근에서 비구름대가 시속 45km로 동남동진하고 있습니다.
-                </div>
-                <div class="sign">No시스템</div>
-            </li>
-        </ul>
-    </section>
+    2. show messages
+
+    3. settings
+
 </div>
 
 </body>
