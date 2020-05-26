@@ -1,4 +1,4 @@
-package com.bot.chat.dto;
+package com.bot.chat.dto.command;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -1,7 +1,7 @@
 package com.bot.chat.controllers;
 
-import com.bot.chat.dto.RequestDto;
-import com.bot.chat.dto.ResponseDto;
+import com.bot.chat.dto.command.RequestDto;
+import com.bot.chat.dto.command.ResponseDto;
 import com.bot.chat.service.InfoService;
 import com.bot.chat.service.ReplyService;
 import lombok.AllArgsConstructor;

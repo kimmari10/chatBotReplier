@@ -6,7 +6,7 @@ import com.bot.chat.domain.Sender;
 import com.bot.chat.domain.repositories.MessageRepository;
 import com.bot.chat.domain.repositories.RoomRepository;
 import com.bot.chat.domain.repositories.SenderRepository;
-import com.bot.chat.dto.RequestDto;
+import com.bot.chat.dto.command.RequestDto;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

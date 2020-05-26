@@ -1,6 +1,8 @@
 package com.bot.chat.controllers;
 
-import com.bot.chat.dto.ResponseCommandDto;
+import com.bot.chat.dto.command.ResponseCommandDto;
+import com.bot.chat.dto.message.ResponseMessageDto;
+import com.bot.chat.service.MessageService;
 import com.bot.chat.service.ReplyService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -14,6 +16,7 @@ import java.util.List;
 public class IndexController {
 
     private final ReplyService replyService;
+    private final MessageService messageService;
 
     @GetMapping("/")
     public String getCommandList(Model model) {
@@ -34,7 +37,10 @@ public class IndexController {
     }
 
     @GetMapping("/message/list")
-    public String messageList() {
+    public String messageList(Model model) {
+        List<ResponseMessageDto> list = messageService.getMessageList();
+
+        model.addAttribute("messages", list);
         return "message/list";
     }
 }
