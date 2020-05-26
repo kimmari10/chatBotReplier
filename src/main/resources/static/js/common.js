@@ -3,8 +3,9 @@ $(document).ready(function() {
    activeNav("nav");
    chkSystemWords(".command-list");
    viewCmdMenu(".command_menu");
-    
-	
+   setMasonry(".command-list");
+
+
 });
 
 /* active nav(navigation var) : 네비게이션 바 활성화 */
@@ -23,9 +24,12 @@ function activeNav(target) {
 /* check system message list : 시스템메시지 리스트 표시 */
 function chkSystemWords(target) {
     if($(target).length) {
-        var words = "시스템";
         $(target).find("li").each(function() {
-            if($(this).find(".sign").text() == words) $(this).addClass("system");
+            var $thisSign = $(this).find(".sign");
+            if($thisSign.text() == "Y" || $thisSign.text() == "y") {
+                $(this).addClass("system");
+                $thisSign.text("시스템");
+            }
         })
     }
 }
@@ -54,7 +58,37 @@ function viewCmdMenu(target) {
         if(liName == "cmd_system") {
             $list.empty().html(sysData);
         }
-        
+
         e.preventDefault();
    });
+}
+
+/* align to masonry type : 벽돌형식 포지셔닝 */
+function setMasonry(target) {
+	masonry();
+	$(window).on("resize", function() {
+        if(this.resizeTo) clearTimeout(this.resizeTo);
+        this.resizeTo = setTimeout(function() {
+            masonry();
+        }, 300);
+    });
+	function masonry() {
+        $(target).children().css("position", "static");
+        var colNum = parseInt($(target).width()/$(target).children().outerWidth());
+        var arrLeft = [], arrTop = [];
+        $(target).children().each(function(childIndex) {
+            var thisH = $(this).outerHeight() + parseInt($(this).css("marginBottom")) + parseInt($(this).css("marginTop"));
+            if(childIndex < colNum) {
+                arrLeft.push($(this).position().left);
+                arrTop.push(thisH);
+                $(this).stop().animate({"top" : 0, "left" : arrLeft[childIndex]}, 400);
+            } else {
+                var minTop = Math.min.apply(Math, arrTop);
+                var minIndex = arrTop.indexOf(minTop);
+                $(this).stop().animate({"top" : minTop, "left" : arrLeft[minIndex]}, 400);
+                arrTop[minIndex] = thisH + minTop;
+            }
+        });
+        $(target).css({"position":"relative", "height": Math.max.apply(Math, arrTop) + parseInt($(target).css("paddingBottom"))}).children().css({"position":"absolute"});
+	}
 }

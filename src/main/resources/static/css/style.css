@@ -65,8 +65,8 @@ section {width:90vw; margin: auto;}
                       contents
 *************************************************/
 /* 명령어 리스트 */
-.command-list {clear:both; display: flex; flex-wrap: wrap;}
-.command-list li {position: relative; width:100%; height:240px; margin-bottom: 2.5rem; background: #fff; border-radius: 0.5rem; box-shadow: inset 0px 0px 0px 1px rgba(0,0,0,.2), 0 1px 10px rgba(0, 0, 0, .15); padding: 1.3rem 1.4rem;}
+.command-list {position: relative; clear:both;}
+.command-list li {position: relative; float: left; width:100%; margin-bottom: 2.5rem; background: #fff; border-radius: 0.5rem; box-shadow: inset 0px 0px 0px 1px rgba(0,0,0,.2), 0 1px 10px rgba(0, 0, 0, .15); padding: 1.2rem 1.4rem 1.5rem;}
 .command-list li .cmnd {margin:0 -1.4rem 0.8rem 0; border-bottom: 1px dashed #ddd; font-family: "Black Han Sans"; font-size: 2rem;}
 .command-list li .cmnd::first-letter {color:#594941;}
 .command-list li .no {position: absolute; top: 8px; left: -10px; width: 25px; height: 25px; background: #f1c40f; border-radius: 2rem; text-align:center; color:#fff; font-weight: 700; line-height: 25px; letter-spacing: -0.5px;}
@@ -95,13 +95,13 @@ section {width:90vw; margin: auto;}
 
 @media screen and (min-width: 768px) {
     .command_menu {text-align: right; margin: -25px 0 20px;}
-    .command-list li {flex: 0 0 calc((100% - 2.5rem) / 2);}
+    .command-list li {width: calc((100% - 2.5rem) / 2);}
     .command-list li {margin-right: 2.5rem;}
     .command-list li:nth-child(2n) {margin-right: 0;}
 
 }
 @media screen and (min-width: 1024px) {
-    .command-list li {flex: 0 0 calc((100% - 5.0rem) / 3);}
+    .command-list li {width: calc((100% - 5.0rem) / 3);}
     .command-list li:nth-child(2n) {margin-right: 2.5rem;}
     .command-list li:nth-child(3n) {margin-right: 0;}
 
@@ -109,7 +109,7 @@ section {width:90vw; margin: auto;}
 @media screen and (min-width: 1200px) {
     .cmd_list {width: 1200px; margin: auto;}
     .command_menu {position:absolute; top:34px; right:8.3vw; margin:0; padding-right: 1.1rem; border-right: 1px solid;}
-    .command-list li {flex: 0 0 calc((100% - 7.5rem) / 4);}
+    .command-list li {width: calc((100% - 7.5rem) / 4);}
     .command-list li:nth-child(3n) {margin-right: 2.5rem;}
     .command-list li:nth-child(4n) {margin-right: 0;}
 }
