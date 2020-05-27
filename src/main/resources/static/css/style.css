@@ -65,16 +65,6 @@ section {width:90vw; margin: auto;}
                       contents
 *************************************************/
 /* 명령어 리스트 */
-.command-list {position: relative; clear:both;}
-.command-list li {position: relative; float: left; width:100%; margin-bottom: 2.5rem; background: #fff; border-radius: 0.5rem; box-shadow: inset 0px 0px 0px 1px rgba(0,0,0,.2), 0 1px 10px rgba(0, 0, 0, .15); padding: 1.2rem 1.4rem 1.5rem;}
-.command-list li .cmnd {margin:0 -1.4rem 0.8rem 0; border-bottom: 1px dashed #ddd; font-family: "Black Han Sans"; font-size: 2rem;}
-.command-list li .cmnd::first-letter {color:#594941;}
-.command-list li .no {position: absolute; top: 8px; left: -10px; width: 25px; height: 25px; background: #f1c40f; border-radius: 2rem; text-align:center; color:#fff; font-weight: 700; line-height: 25px; letter-spacing: -0.5px;}
-.command-list li .msg {font-size: 0.9rem; color: #444; line-height: 160%;}
-.command-list li .sign {font-size:0; }
-.command-list li.system {background: url(/img/bg_system.svg) no-repeat right bottom #fff;}
-.command-list li.system .sign {position: absolute; bottom: 0; right: 0; padding: 0.9rem 0.7rem 0.4rem 1.2rem; border-radius: 100% 0 0.5em 0; background: #594941; font-size: 0.8rem; font-weight: 700; color:#fff;}
-
 .command_menu {font-size:0; text-align: center; margin: 0px 0 20px;}
 .command_menu li {position: relative; display: inline-block; vertical-align: middle; font-size:1rem;}
 .command_menu li a {display: inline-block; height: 2rem;}
@@ -85,13 +75,26 @@ section {width:90vw; margin: auto;}
 .command_menu .cmd_general a.on:before,
 .command_menu .cmd_system a.on:before {content: ' '; position: absolute; top: 7px; left: 50%; width: 46px; height: 1rem; margin-left:-19px;  background: #f1c40f; z-index: -1;}
 .command_menu .cmd_all a.on:before {width: 20px; margin-left:-7px;}
-.command_menu .vt_card a, .command_menu .vt_keyword a {margin-left: 15px; padding-top: 3px; font-size: 0; text-align: center;}
+.command_menu .vt_card a, .command_menu .vt_kwd a {margin-left: 15px; padding-top: 3px; font-size: 0; text-align: center;}
 .command_menu .vt_card a:before,
-.command_menu .vt_keyword a:before {margin-top:3px; font-family: "FontAwesome"; font-size: 23px; line-height: 100%;}
+.command_menu .vt_kwd a:before {margin-top:3px; font-family: "FontAwesome"; font-size: 23px; line-height: 100%;}
 .command_menu .vt_card a:before {content: '\f009';}
-.command_menu .vt_keyword a:before {content: '\f037';}
+.command_menu .vt_kwd a:before {content: '\f037';}
 .command_menu .vt_card a.on:before,
-.command_menu .vt_keyword a.on:before {color: #f1c40f;}
+.command_menu .vt_kwd a.on:before {color: #f1c40f;}
+
+.command-list {position: relative; clear:both;}
+.command-list li {position: relative; float: left; width:100%; margin-bottom: 2.5rem; background: #fff; border-radius: 0.5rem; box-shadow: inset 0px 0px 0px 1px rgba(0,0,0,.2), 0 1px 10px rgba(0, 0, 0, .15); padding: 1.2rem 1.4rem 1.5rem;}
+.command-list li .cmnd {margin:0 -1.4rem 0.8rem 0; border-bottom: 1px dashed #ddd; font-family: "Black Han Sans"; font-size: 2rem;}
+.command-list li .cmnd::first-letter {color:#594941;}
+.command-list li .no {position: absolute; top: 8px; left: -10px; width: 25px; height: 25px; background: #f1c40f; border-radius: 2rem; text-align:center; color:#fff; font-weight: 700; line-height: 25px; letter-spacing: -0.5px;}
+.command-list li .msg {font-size: 0.9rem; color: #444; line-height: 160%;}
+.command-list li .sign {font-size:0; }
+.command-list li.system {background: url(/img/bg_system.svg) no-repeat right bottom #fff;}
+.command-list li.system .sign {position: absolute; bottom: 0; right: 0; padding: 0.9rem 0.7rem 0.4rem 1.2rem; border-radius: 100% 0 0.5em 0; background: #594941; font-size: 0.8rem; font-weight: 700; color:#fff;}
+
+.command-list.kwd li > div {display: none;}
+.command-list.kwd li .cmnd {display: block; margin: 0; border: 0;}
 
 @media screen and (min-width: 768px) {
     .command_menu {text-align: right; margin: -25px 0 20px;}
