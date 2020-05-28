@@ -60,7 +60,7 @@ public class ReplyService {
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            System.out.println(dto.toString());
+            log.info(dto.toString());
             return dto;
         }
 
@@ -72,13 +72,12 @@ public class ReplyService {
         String content = "";
 
         ResponseDto dto = ResponseDto.builder()
-                .title("도움말")
                 .build();
 
         if("!명령어".equals(msg)) {
             List<String> commandList = commandRepository.findAll()
                     .stream()
-                    .map(Command::getTitle)
+                    .map(Command::getCommand)
                     .collect(Collectors.toList());
 
             dto = dto.toBuilder()
@@ -86,8 +85,12 @@ public class ReplyService {
                     .contents(commandList)
                     .build();
 
-        } else {
-            //TODO !명령어 처리
+        } else if("!도움말".equals(msg)) {
+            dto = dto.toBuilder()
+                    .success(true)
+                    .title("도움말")
+                    .content("!명령어를 쳐서 명령어 리스트를 확인 후 사용해보세요.")
+                    .build();
 
         }
 

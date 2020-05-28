@@ -19,15 +19,16 @@ public class IndexController {
     private final MessageService messageService;
 
     @GetMapping("/")
-    public String getCommandList(Model model) {
-        List<ResponseCommandDto> list = replyService.getCommandList();
+    public String index() {
 
-        model.addAttribute("commands", list);
         return "index";
     }
 
     @GetMapping("/command/list")
-    public String commandList() {
+    public String commandList(Model model) {
+        List<ResponseCommandDto> list = replyService.getCommandList();
+
+        model.addAttribute("commands", list);
         return "command/list";
     }
 
