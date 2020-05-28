@@ -1,9 +1,9 @@
 $(document).ready(function() {
 
    activeNav("nav");
-   chkSystemWords(".command-list");
-   viewCmdMenu(".command_menu");
-   setMasonry(".command-list");
+   chkSystemWords(".cmnd-list");
+   viewCmdMenu(".cmnd-menu");
+   setMasonry(".cmnd-list.cardV");
 
 
 });
@@ -36,7 +36,7 @@ function chkSystemWords(target) {
 
 /* view type menu for command list : 명령어리스트 뷰타입관련 메뉴 */
 function viewCmdMenu(target) {
-    var list = ".command-list";
+    var list = ".cmnd-list";
     var gnrlData = $(list).find("li").not(".system");
     var sysData = $(list).find("li").filter(".system"), sysIdx = [];
 
@@ -51,25 +51,30 @@ function viewCmdMenu(target) {
             $.each(sysIdx, function(i, val) {
                 $(list).find("li").eq(val).before(sysData[i]);
             });
-            masonry(list);
+            setMnAction(this, ".cmd_general a, .cmd_system a", true);
         }
         if(liName == "cmd_general") {
             $(list).empty().html(gnrlData);
-            masonry(list);
+            setMnAction(this, ".cmd_all a, .cmd_system a", true);
         }
         if(liName == "cmd_system") {
             $(list).empty().html(sysData);
-            masonry(list);
+            setMnAction(this, ".cmd_all a, .cmd_general a", true);
         }
         if(liName == "vt_card") {
-            $(this).addClass("on");
-            $(".vt_kwd a").removeClass("on");
-            $(list).removeClass("kwd");
+            $(list).addClass("cardV").removeClass("kwdV");
+            setMnAction(this, ".vt_kwd a", true);
         }
         if(liName == "vt_kwd") {
-            $(this).addClass("on");
-            $(".vt_card a").removeClass("on");
-            $(list).addClass("kwd");
+            $(list).addClass("kwdV").removeClass("cardV");
+            setMnAction(this, ".vt_card a", false);
+        }
+
+        function setMnAction(onMn, offMn, masonryYN) {
+            $(offMn).removeClass("on");
+            $(onMn).addClass("on");
+            if(masonryYN) masonry(list + ".cardV");
+            else delMasonryTrace(list);
         }
         e.preventDefault();
    });
@@ -106,4 +111,10 @@ function masonry(target) {
         }
     });
     $(target).css({"position":"relative", "height": Math.max.apply(Math, arrTop) + parseInt($(target).css("paddingBottom"))}).children().css({"position":"absolute"});
+}
+
+/* delete masonry trace : 벽돌형식 포지셔닝흔적 삭제 */
+function delMasonryTrace(target) {
+    $(target).attr("style", "");
+    $(target).find("li").attr("style", "");
 }

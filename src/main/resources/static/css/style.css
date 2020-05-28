@@ -13,7 +13,7 @@ table {border-collapse:collapse; border-spacing:0; }
 input[type=text], input[type=password], input[type=number], input[type=file], select, textarea {width: 100%; height: 40px; color: #fff; font-size: 18px; padding: 5px 7px; background: rgba(255,255,255,0.3); border-radius: 3px; vertical-align: middle;}
 textarea {height: 100px; resize: none;}
 html {overflow-y: scroll; overflow-x: hidden; font-size: 14px;}
-body {word-break: keep-all;}
+body {word-break: keep-all; background: url(/img/bg.jpg) center center/cover no-repeat fixed #fefefe;}
 * {box-sizing: border-box; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); -webkit-touch-callout: none;}
 
 
@@ -21,36 +21,49 @@ body {word-break: keep-all;}
 /*************************************************
                       layout
 *************************************************/
-header {height: 9vh; border-bottom: 1px solid #ebebeb;}
+header {height: 60px; border-bottom: 1px solid #ebebeb; background: #fff;}
 header .box {position: relative; width:90vw; margin:auto;}
-header h1 {float: left; margin-top: 15px; font-size: 1rem;}
+header h1 {float: left; margin-top: 13px; font-size: 0.8rem;}
 header h1 .appNm {display: inline-block; background: #f1c40f; margin-right: 5px; font-weight: 700;}
-header h1 .tit {display: block; margin-top: 2px; font-family: "Black Han Sans"; font-size: 2.3rem;}
-header .btn_navi {position: absolute; top: 15px; right: 0; height:50px; font-size:0;}
-header .btn_navi:before {content:''; font-family: "FontAwesome"; content: '\f0c9'; font-size:2.5rem;}
+header h1 .tit {display: block; margin-top: 2px; font-family: "Black Han Sans"; font-size: 1.6rem;}
+header .btn_navi {position: absolute; top: 5px; right: 0; height:50px; font-size:0;}
+header .btn_navi:before {content:''; font-family: "FontAwesome"; content: '\f0c9'; font-size: 1.7rem; line-height: 50px;}
 header .btn_navi:hover:before {color: #f1c40f}
 nav {position:fixed; top:0; right:0; width:100%; height:100%; z-index:10; background:rgba(0,0,0,0.8); display: flex; align-items: center; justify-content: center; transform:translate(100%, 0);}
 nav ul {position: relative;}
 nav ul:before, nav ul:after {content: ''; position: absolute; background: url(/img/ani_imgs.svg) no-repeat 0 0/200px 60px;}
-nav ul:before {top: -15px; left: -45px; width: 46px; height: 60px; background-position: -90px center; animation: smoke 5s ease-out 1s infinite;}
-nav ul:after {top: -63px; left: -90px; width: 60px; height: 60px; background-position: 0 center; animation: smoke 5s ease-out 1.2s infinite;}
-nav ul li {font-size: 2.7rem; text-align: center; text-decoration: underline;}
+nav ul:before {top: -50px; left: 20px; width: 46px; height: 60px; background-position: -90px center; animation: smoke 5s ease-out 1s infinite;}
+nav ul:after {top: -95px; left: -30px; width: 60px; height: 60px; background-position: 0 center; animation: smoke 5s ease-out 1.2s infinite;}
+nav ul li {font-size: 2.1rem; text-align: center; text-decoration: underline;}
 nav ul li a {position:relative; font-family: "Black Han Sans"; color: #fff;}
 nav ul li a:hover {color: #f1c40f;}
 nav ul li a:hover:after {content: ''; position: absolute; width:50px; height:50px; background: url(/img/ani_imgs.svg) no-repeat -135px 0px/170px 50px;}
-nav .btn_closeNavi {position:absolute; top: 2rem; right: 2rem; width: 5rem; height: 5rem; text-align: center; line-height: 5rem;}
-nav .btn_closeNavi:before {content: '\f05c'; font-family: "FontAwesome"; font-size: 4rem; color: #fff;}
+nav .btn_closeNavi {position:absolute; top: 0; right: 0; width: 5rem; height: 5rem; text-align: center; line-height: 5rem;}
+nav .btn_closeNavi:before {content: '\f05c'; display: block; font-family: "FontAwesome"; font-size: 3rem; color: #fff;}
 nav.active_nav {transform:translate(0, 0)}
-.contents {min-height: 91vh; padding: 50px 0 70px; background: url(/img/bg.jpg) center center/cover no-repeat fixed #fefefe;}
-.title {margin-bottom: 2rem; text-decoration: underline; font-family: "Black Han Sans"; font-size: 2.7rem; text-align: center;}
+.contents {padding: 40px 0 50px; }
+.title {margin-bottom: 1.5rem; text-decoration: underline; font-family: "Black Han Sans"; font-size: 2.2rem; text-align: center;}
 section {width:90vw; margin: auto;}
 
+@media screen and (min-width: 768px) {
+    .title {font-size: 2.5rem;}
+}
+@media screen and (min-width: 1024px) {
+    nav ul li {font-size: 2.7rem;}
+    nav ul:before {top: -15px; left: -45px;}
+    nav ul:after {top: -63px; left: -90px;}
+}
 @media screen and (min-width: 1200px) {
-    header {height:10.5vh; }
-    header h1 {margin-top: 22px;}
-    header .btn_navi {top:23px;}
-    .contents {min-height: 89.5vh;}
-    .title {position: absolute; top: 2rem; left: 50%; width: 30vw; margin-left: -15vw;}
+    header {height:90px;}
+    header h1 {margin-top: 19px; font-size: 1rem;}
+    header h1 .appNm {font-weight: 700;}
+    header h1 .tit {font-size: 2.3rem;}
+    header .btn_navi {top: 19px;}
+    header .btn_navi:before {font-size:2.5rem;}
+    nav .btn_closeNavi {position:absolute; top: 2rem; right: 2rem;}
+    nav .btn_closeNavi:before {font-size:4rem;}
+    .contents {padding: 50px 0 70px;}
+    .title {position: absolute; top: 24px; left: 50%; width: 30vw; margin-left: -15vw; margin-bottom: 2rem; font-size: 2.7rem;}
 }
 @keyframes smoke {
     0% {transform:scale(0.3, 0.3) rotate(-20deg) translate(70px, 00px); opacity:0;}
@@ -62,57 +75,86 @@ section {width:90vw; margin: auto;}
 
 
 /*************************************************
+                      common
+*************************************************/
+/* 공통 카드뷰 타입 */
+.card-view {position: relative; clear:both; min-height: 70vh;}
+.card-view li {position: relative; float: left; width:100%; margin-bottom: 1.2rem; padding: 0.9rem 1.4rem 1.1rem; background: #fff; border-radius: 0.5rem; box-shadow: inset 0px 0px 0px 1px rgba(0,0,0,.2), 0 1px 10px rgba(0, 0, 0, .15);}
+
+@media screen and (min-width: 768px) {
+    .card-view li {width: calc((100% - 2.5rem) / 2); margin-bottom: 2.5rem;}
+    .card-view li {margin-right: 2.5rem;}
+    .card-view li:nth-child(2n) {margin-right: 0;}
+}
+@media screen and (min-width: 1024px) {
+    .card-view li {width: calc((100% - 5.0rem) / 3); padding: 1.2rem 1.4rem 1.4rem;}
+    .card-view li:nth-child(2n) {margin-right: 2.5rem;}
+    .card-view li:nth-child(3n) {margin-right: 0;}
+    .card-view li .cmnd {font-size: 2rem;}
+}
+@media screen and (min-width: 1200px) {
+    .card-view li {width: calc((100% - 7.5rem) / 4);}
+    .card-view li:nth-child(3n) {margin-right: 2.5rem;}
+    .card-view li:nth-child(4n) {margin-right: 0;}
+}
+
+
+
+/*************************************************
                       contents
 *************************************************/
 /* 명령어 리스트 */
-.command_menu {font-size:0; text-align: center; margin: 0px 0 20px;}
-.command_menu li {position: relative; display: inline-block; vertical-align: middle; font-size:1rem;}
-.command_menu li a {display: inline-block; height: 2rem;}
-.command_menu .cmd_all a,
-.command_menu .cmd_general a,
-.command_menu .cmd_system a {margin-left: 7px; padding: 0.23rem 0.8rem; border: 1px solid #333; border-radius: 10px; font-size: 0.8rem; font-weight: 600; font-size: 1rem;}
-.command_menu .cmd_all a.on:before,
-.command_menu .cmd_general a.on:before,
-.command_menu .cmd_system a.on:before {content: ' '; position: absolute; top: 7px; left: 50%; width: 46px; height: 1rem; margin-left:-19px;  background: #f1c40f; z-index: -1;}
-.command_menu .cmd_all a.on:before {width: 20px; margin-left:-7px;}
-.command_menu .vt_card a, .command_menu .vt_kwd a {margin-left: 15px; padding-top: 3px; font-size: 0; text-align: center;}
-.command_menu .vt_card a:before,
-.command_menu .vt_kwd a:before {margin-top:3px; font-family: "FontAwesome"; font-size: 23px; line-height: 100%;}
-.command_menu .vt_card a:before {content: '\f009';}
-.command_menu .vt_kwd a:before {content: '\f037';}
-.command_menu .vt_card a.on:before,
-.command_menu .vt_kwd a.on:before {color: #f1c40f;}
+.cmnd-menu {font-size:0; text-align: center; margin: 0px 0 25px;}
+.cmnd-menu li {position: relative; display: inline-block; vertical-align: middle;}
+.cmnd-menu li a {display: inline-block; height: 2rem;}
+.cmnd-menu .cmd_all a,
+.cmnd-menu .cmd_general a,
+.cmnd-menu .cmd_system a {position: relative; margin-left: 6px; padding: 0.3rem 0.8rem; border: 1px solid #333; border-radius: 10px;  font-weight: 600; font-size: 0.9rem; z-index: 0;}
+.cmnd-menu .cmd_all a.on:before,
+.cmnd-menu .cmd_general a.on:before,
+.cmnd-menu .cmd_system a.on:before {content: ' '; position: absolute; top: 6px; left: 50%; width: 46px; height: 1rem; margin-left:-23px;  background: #f1c40f; z-index: -1;}
+.cmnd-menu .cmd_all a.on:before {width: 20px; margin-left:-10px;}
+.cmnd-menu .vt_card a, .cmnd-menu .vt_kwd a {margin-left: 15px; padding-top: 3px; font-size: 0; text-align: center;}
+.cmnd-menu .vt_card a:before,
+.cmnd-menu .vt_kwd a:before {margin-top:3px; font-family: "FontAwesome"; font-size: 23px; line-height: 100%;}
+.cmnd-menu .vt_card a:before {content: '\f009';}
+.cmnd-menu .vt_kwd a:before {content: '\f037';}
+.cmnd-menu .vt_card a.on:before,
+.cmnd-menu .vt_kwd a.on:before {color: #f1c40f;}
 
-.command-list {position: relative; clear:both;}
-.command-list li {position: relative; float: left; width:100%; margin-bottom: 2.5rem; background: #fff; border-radius: 0.5rem; box-shadow: inset 0px 0px 0px 1px rgba(0,0,0,.2), 0 1px 10px rgba(0, 0, 0, .15); padding: 1.2rem 1.4rem 1.5rem;}
-.command-list li .cmnd {margin:0 -1.4rem 0.8rem 0; border-bottom: 1px dashed #ddd; font-family: "Black Han Sans"; font-size: 2rem;}
-.command-list li .cmnd::first-letter {color:#594941;}
-.command-list li .no {position: absolute; top: 8px; left: -10px; width: 25px; height: 25px; background: #f1c40f; border-radius: 2rem; text-align:center; color:#fff; font-weight: 700; line-height: 25px; letter-spacing: -0.5px;}
-.command-list li .msg {font-size: 0.9rem; color: #444; line-height: 160%;}
-.command-list li .sign {font-size:0; }
-.command-list li.system {background: url(/img/bg_system.svg) no-repeat right bottom #fff;}
-.command-list li.system .sign {position: absolute; bottom: 0; right: 0; padding: 0.9rem 0.7rem 0.4rem 1.2rem; border-radius: 100% 0 0.5em 0; background: #594941; font-size: 0.8rem; font-weight: 700; color:#fff;}
+.cmnd-list li .cmnd {margin:0 -1.4rem 0.8rem 0; border-bottom: 1px dashed #ddd; font-family: "Black Han Sans"; font-size: 1.8rem;}
+.cmnd-list li .cmnd::first-letter {color:#594941;}
+.cmnd-list li .no {position: absolute; top: 8px; left: -10px; width: 25px; height: 25px; background: #f1c40f; border-radius: 2rem; text-align:center; color:#fff; font-weight: 700; line-height: 25px; letter-spacing: -0.5px;}
+.cmnd-list li .msg {font-size: 0.9rem; color: #444; line-height: 160%;}
+.cmnd-list li .sign {font-size:0; }
+.cmnd-list li.system {background: url(/img/bg_system.svg) no-repeat right bottom #fff;}
+.cmnd-list li.system .sign {position: absolute; bottom: 0; right: 0; padding: 0.9rem 0.7rem 0.4rem 1.2rem; border-radius: 100% 0 0.5em 0; background: #594941; font-size: 0.8rem; font-weight: 700; color:#fff;}
 
-.command-list.kwd li > div {display: none;}
-.command-list.kwd li .cmnd {display: block; margin: 0; border: 0;}
+.cmnd-list.kwdV li > div {display: none;}
+.cmnd-list.kwdV li .cmnd {display: block; margin: 0; border: 0;}
 
 @media screen and (min-width: 768px) {
-    .command_menu {text-align: right; margin: -25px 0 20px;}
-    .command-list li {width: calc((100% - 2.5rem) / 2);}
-    .command-list li {margin-right: 2.5rem;}
-    .command-list li:nth-child(2n) {margin-right: 0;}
-
-}
-@media screen and (min-width: 1024px) {
-    .command-list li {width: calc((100% - 5.0rem) / 3);}
-    .command-list li:nth-child(2n) {margin-right: 2.5rem;}
-    .command-list li:nth-child(3n) {margin-right: 0;}
-
+    .cmnd-menu {text-align: right; margin: -20px 0 15px;}
 }
 @media screen and (min-width: 1200px) {
-    .cmd_list {width: 1200px; margin: auto;}
-    .command_menu {position:absolute; top:34px; right:8.3vw; margin:0; padding-right: 1.1rem; border-right: 1px solid;}
-    .command-list li {width: calc((100% - 7.5rem) / 4);}
-    .command-list li:nth-child(3n) {margin-right: 2.5rem;}
-    .command-list li:nth-child(4n) {margin-right: 0;}
+    .cmnd-menu {position:absolute; top:30px; right:8.3vw; margin:0; padding-right: 1.1rem; border-right: 1px solid;  }
+    .cmnd-menu li a {font-size:1rem;}
+}
+
+
+/* 메시지 리스트 */
+.msg-list li .sender {font-family: "Black Han Sans"; font-size: 1.3rem;}
+.msg-list li .sender:before {content: ' '; position:absolute; top: 0.75rem; left: 0.75rem; width: 0.5rem; height: 0.5rem; background:#f1c40f; border-radius: 3rem;}
+.msg-list li .sendDate {position: absolute; top: 1.2rem; right: 1.4rem; color: #666; font-size:0.8rem;}
+.msg-list li .sendDate .date {margin-right:0.5rem;}
+
+@media screen and (min-width: 768px) {
+    .msg-list li .sender {font-size: 1.5rem;}
+}
+@media screen and (min-width: 1024px) {
+    .msg-list li .sender {font-size: 1.6rem;}
+    .msg-list li .sender:before {top: 1rem; left: 1rem; }
+}
+@media screen and (min-width: 1200px) {
+
 }

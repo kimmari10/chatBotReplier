@@ -34,7 +34,8 @@
     <h2 class="title">명령어 리스트</h2>
 
     <section>
-        <ul class="command_menu">
+
+        <ul class="cmnd-menu">
             <li class="cmd_all"><a href="#" class="on">All</a></li>
             <li class="cmd_general"><a href="#">메시지</a></li>
             <li class="cmd_system"><a href="#">!메시지</a></li>
@@ -42,7 +43,7 @@
             <li class="vt_kwd"><a href="#">키워드형식 뷰</a></li>
         </ul>
 
-        <ul class="command-list">
+        <ul class="card-view cmnd-list cardV">
         <!-- 목록 출력 영역 -->
         {{#commands}}
             <li>
@@ -52,7 +53,7 @@
                 <div class="sign">{{signalYn}}</div>
             </li>
         {{/commands}}
-        <!-- 디자인확인 위해 임시로 넣어둠 -->
+            <!-- 디자인확인 위해 임시로 넣어둠 -->
             <li>
                 <div class="cmnd">날씨</div>
                 <div class="no">1</div>

@@ -21,9 +21,9 @@
     <!-- navigation -->
     <nav>
         <ul>
-            <li><a href="#">메세지 리스트</a></li>
-            <li><a href="#">다른 메뉴 리스트</a></li>
-            <li><a href="#">또 다른 메뉴 리스트</a></li>
+            <li><a href="/command/list">명령어 리스트</a></li>
+            <li><a href="/command/save">저장(이라고 해야하나요?)</a></li>
+            <li><a href="/message/list">메시지 리스트</a></li>
         </ul>
         <a href="#" class="btn_closeNavi">닫기</a>
     </nav>
@@ -31,25 +31,17 @@
 </header>
 
 <div class="contents">
-    <h2 class="title">명령어 리스트</h2>
+    <h2 class="title">메시지 리스트</h2>
 
     <section>
-        <ul class="command_menu">
-            <li class="cmd_all"><a href="#" class="on">All</a></li>
-            <li class="cmd_general"><a href="#">메시지</a></li>
-            <li class="cmd_system"><a href="#">!메시지</a></li>
-            <li class="vt_card"><a href="#" class="on">카드형식 뷰</a></li>
-            <li class="vt_kwd"><a href="#">키워드형식 뷰</a></li>
-        </ul>
 
-        <ul class="command-list">
+        <ul class="card-view msg-list">
         <!-- 목록 출력 영역 -->
         {{#messages}}
             <li>
-                <div class="">{{senderName}}</div>
-                <div class="">{{content}}</div>
-                <div class="">{{sendDate}}</div>
-                <div class="">{{sendTime}}</div>
+                <div class="sender">{{senderName}}</div>
+                <div class="msgCon">{{content}}</div>
+                <div class="sendDate"><span class="date">{{sendDate}}</span><span class="time">{{sendTime}}</span></div>
             </li>
         {{/messages}}
         </ul>
