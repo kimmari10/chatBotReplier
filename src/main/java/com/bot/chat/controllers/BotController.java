@@ -7,6 +7,7 @@ import com.bot.chat.service.ReplyService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @Slf4j
@@ -18,7 +19,7 @@ public class BotController {
     private final ReplyService replyService;
     private final InfoService infoService;
 
-    @GetMapping("/api/bot/reply")
+    @GetMapping("/api/reply")
     public ResponseDto proc(RequestDto requestDto) {
         String msg = requestDto.getMsg();
 
@@ -39,6 +40,12 @@ public class BotController {
             return replyService.execContainsKeywordCommand(requestDto);
         }
     }
+
+    @PostMapping("/api/command/save")
+    public void saveCommand() {
+        //replyService.save();
+    }
+
 
     public boolean isSystemCommand(String msg) {
         return msg.startsWith(COMMAND_SIGNAL);

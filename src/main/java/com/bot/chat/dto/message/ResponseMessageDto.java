@@ -1,7 +1,6 @@
 package com.bot.chat.dto.message;
 
 
-import com.bot.chat.domain.Command;
 import com.bot.chat.domain.Message;
 import lombok.Getter;
 import lombok.ToString;
