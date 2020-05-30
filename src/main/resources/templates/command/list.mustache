@@ -1,38 +1,8 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-    <title>카카오톡 봇 관리</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=yes" name="viewport">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/style.css">
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script src="/js/common.js"></script>
-</head>
-<body>
-
-<header>
-    <div class="box">
-        <h1><span class="appNm">카카오톡</span><span class="tit">오픈챗 봇</span></h1>
-        <a href="" class="btn_navi"><i>네비게이션</i></a>
-    </div>
-    <!-- navigation -->
-    <nav>
-        <ul>
-            <li><a href="/command/list">명령어 리스트</a></li>
-            <li><a href="/command/save">저장(이라고 해야하나요?)</a></li>
-            <li><a href="/message/list">메시지 리스트</a></li>
-        </ul>
-        <a href="#" class="btn_closeNavi">닫기</a>
-    </nav>
-    <!-- //navigation -->
-</header>
+{{>inc/header}}
 
 <div class="contents">
-    <h2 class="title">명령어 리스트</h2>
 
+    <h2 class="title">명령어 리스트</h2>
     <section>
 
         <ul class="cmnd-menu">
@@ -157,7 +127,6 @@
             </li>
         </ul>
     </section>
-</div>
 
-</body>
-</html>
+</div>
+{{>inc/footer}}
