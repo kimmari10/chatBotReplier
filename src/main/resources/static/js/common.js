@@ -1,9 +1,11 @@
 $(document).ready(function() {
 
    activeNav("nav");
+   activeAddComnd(".addCmnd");
    chkSystemWords(".cmnd-list");
    viewCmdMenu(".cmnd-menu");
    setMasonry(".cmnd-list.cardV");
+   if(chkMobile() == "Mobile") $("body").addClass("mobile");
 
 
 });
@@ -15,7 +17,20 @@ function activeNav(target) {
         $(target).addClass(chkTxt);
         e.preventDefault();
     });
-    $(".btn_closeNavi").on("click", function(e) {
+    $(target + " .btn_close").on("click", function(e) {
+        $(target).removeClass(chkTxt);
+        e.preventDefault();
+    });
+}
+
+/* active add command popup : 명령어 추가  활성화 */
+function activeAddComnd(target) {
+    var chkTxt = "active_addCmnd";
+    $(".btn_addCmnd").on("click", function(e) {
+        $(target).addClass(chkTxt);
+        e.preventDefault();
+    });
+    $(target + " .btn_close").on("click", function(e) {
         $(target).removeClass(chkTxt);
         e.preventDefault();
     });
@@ -117,4 +132,13 @@ function masonry(target) {
 function delMasonryTrace(target) {
     $(target).attr("style", "");
     $(target).find("li").attr("style", "");
+}
+
+/* check Mobile or PC : 모바일, 데스크탑 체크 */
+function chkMobile() {
+    var mobileFilter = "win16|win32|win64|mac";
+    if(navigator.platform){
+        if(0 > mobileFilter.indexOf(navigator.platform.toLowerCase())) return "Mobile";
+        else return "PC";
+    }
 }
