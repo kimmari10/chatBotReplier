@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
@@ -32,6 +33,7 @@ public class IndexController {
         return "command/list";
     }
 
+
     @GetMapping("/command/save")
     public String commandSave() {
         return "command/save";
@@ -44,4 +46,13 @@ public class IndexController {
         model.addAttribute("messages", list);
         return "message/list";
     }
+
+    @GetMapping("/message/list/{sender}")
+    public String messageList(Model model, @PathVariable String sender) {
+        List<ResponseMessageDto> list = messageService.getMessageListBySender(sender);
+
+        model.addAttribute("messages", list);
+        return "message/list";
+    }
+
 }

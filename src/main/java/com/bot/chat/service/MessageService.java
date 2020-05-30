@@ -25,6 +25,10 @@ public class MessageService {
                 .collect(Collectors.toList());
     }
 
+    public List<ResponseMessageDto> getMessageListBySender(String senderName) {
+        return messageRepository.findAllBySenderOrderByCreatedDateTimeDesc(senderName);
+    }
+
     private Sort sortBySendDateTimeDesc() {
         return Sort.by(Sort.Direction.DESC, "createdDateTime");
     }
