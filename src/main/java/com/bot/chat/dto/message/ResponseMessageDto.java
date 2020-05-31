@@ -13,12 +13,14 @@ import java.time.format.DateTimeFormatter;
 public class ResponseMessageDto {
     private String content;
     private String senderName;
+    private String roomName;
     private String sendDate;
     private String sendTime;
 
     public ResponseMessageDto(Message entity) {
         this.content = entity.getContent();
         this.senderName = entity.getSender().getName();
+        this.roomName = entity.getSender().getRoom().getName();
         this.sendDate = entity.getCreatedDateTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
         this.sendTime = entity.getCreatedDateTime().format(DateTimeFormatter.ofPattern("HH:mm:ss"));
     }

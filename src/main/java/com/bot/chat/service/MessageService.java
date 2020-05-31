@@ -26,7 +26,11 @@ public class MessageService {
     }
 
     public List<ResponseMessageDto> getMessageListBySender(String senderName) {
-        return messageRepository.findAllBySenderOrderByCreatedDateTimeDesc(senderName);
+        return messageRepository.findAllBySenderTimeDesc(senderName);
+    }
+
+    public List<ResponseMessageDto> getMessageListByRoomAndSender(String room, String senderName) {
+        return messageRepository.findAllByRoomAndSenderTimeDesc(room, senderName);
     }
 
     private Sort sortBySendDateTimeDesc() {

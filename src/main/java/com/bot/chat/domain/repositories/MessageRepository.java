@@ -10,5 +10,8 @@ import java.util.List;
 public interface MessageRepository extends JpaRepository<Message, Long> {
 
     @Query("SELECT m FROM Message m INNER JOIN FETCH m.sender s WHERE s.name =:senderName ORDER BY m.createdDateTime DESC")
-    List<ResponseMessageDto> findAllBySenderOrderByCreatedDateTimeDesc(String senderName);
+    List<ResponseMessageDto> findAllBySenderTimeDesc(String senderName);
+
+    @Query("SELECT m FROM Message m INNER JOIN FETCH m.sender s WHERE s.name =:senderName AND s.room.name =:roomName ORDER BY m.createdDateTime DESC")
+    List<ResponseMessageDto> findAllByRoomAndSenderTimeDesc(String roomName, String senderName);
 }
