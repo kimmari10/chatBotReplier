@@ -6,10 +6,13 @@ import com.bot.chat.domain.Sender;
 import com.bot.chat.domain.repositories.MessageRepository;
 import com.bot.chat.domain.repositories.RoomRepository;
 import com.bot.chat.domain.repositories.SenderRepository;
+import com.bot.chat.dto.ResponseSummaryDto;
 import com.bot.chat.dto.command.RequestDto;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Slf4j
 @Service
@@ -53,5 +56,12 @@ public class InfoService {
                 .build();
 
         messageRepository.save(messageEntity);
+    }
+
+    public List<ResponseSummaryDto> getSummary() {
+
+        messageRepository.findAll();
+
+        return null;
     }
 }

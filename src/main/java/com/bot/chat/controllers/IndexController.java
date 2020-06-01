@@ -1,7 +1,9 @@
 package com.bot.chat.controllers;
 
+import com.bot.chat.dto.ResponseSummaryDto;
 import com.bot.chat.dto.command.ResponseCommandDto;
 import com.bot.chat.dto.message.ResponseMessageDto;
+import com.bot.chat.service.InfoService;
 import com.bot.chat.service.MessageService;
 import com.bot.chat.service.ReplyService;
 import lombok.AllArgsConstructor;
@@ -18,11 +20,19 @@ public class IndexController {
 
     private final ReplyService replyService;
     private final MessageService messageService;
+    private final InfoService infoService;
 
     @GetMapping("/")
     public String index() {
-
         return "index";
+    }
+
+    @GetMapping("/index")
+    public String summary(Model model) {
+        List<ResponseSummaryDto> list = infoService.getSummary();
+
+        model.addAttribute("summary", list);
+        return "summary";
     }
 
     @GetMapping("/command/list")
