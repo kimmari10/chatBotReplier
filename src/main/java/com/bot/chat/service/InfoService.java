@@ -59,8 +59,11 @@ public class InfoService {
     }
 
     public List<ResponseSummaryDto> getSummary() {
-
-        messageRepository.findAll();
+        ResponseSummaryDto.builder()
+                .messages(messageRepository.findAll())
+                .senders(senderRepository.findAll())
+                .rooms(roomRepository.findAll())
+                .build();
 
         return null;
     }
