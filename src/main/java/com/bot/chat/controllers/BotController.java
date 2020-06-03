@@ -1,5 +1,6 @@
 package com.bot.chat.controllers;
 
+import com.bot.chat.dto.command.CommandSaveRequestDto;
 import com.bot.chat.dto.command.RequestDto;
 import com.bot.chat.dto.command.ResponseDto;
 import com.bot.chat.service.InfoService;
@@ -8,6 +9,7 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @Slf4j
@@ -42,8 +44,8 @@ public class BotController {
     }
 
     @PostMapping("/api/command/save")
-    public void saveCommand() {
-        //replyService.save();
+    public void saveCommand(@RequestBody CommandSaveRequestDto dto) {
+        replyService.save(dto);
     }
 
 

@@ -2,6 +2,7 @@ package com.bot.chat.service;
 
 import com.bot.chat.domain.Command;
 import com.bot.chat.domain.repositories.CommandRepository;
+import com.bot.chat.dto.command.CommandSaveRequestDto;
 import com.bot.chat.dto.command.RequestDto;
 import com.bot.chat.dto.command.ResponseCommandDto;
 import com.bot.chat.dto.command.ResponseDto;
@@ -122,6 +123,17 @@ public class ReplyService {
 
         return dto;
     }
+
+    public void save(CommandSaveRequestDto dto) {
+        Command cmd = Command.builder()
+                .title("")
+                .command(dto.getCommand())
+                .content(dto.getContent())
+                .signalYn("N")
+                .build();
+        commandRepository.save(cmd);
+    }
+
 
     public List<ResponseCommandDto> getCommandList() {
         return commandRepository.findAll()

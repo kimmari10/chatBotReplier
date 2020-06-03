@@ -13,7 +13,6 @@ import java.util.List;
 
 
 @Getter
-@Builder
 @ToString
 public class ResponseSummaryDto {
     private List<Room> rooms;
@@ -23,6 +22,7 @@ public class ResponseSummaryDto {
     private int senderCnt;
     private int messageCnt;
 
+    @Builder
     public ResponseSummaryDto(List<Room> rooms, List<Sender> senders, List<Message> messages) {
         this.rooms = rooms;
         this.senders = senders;

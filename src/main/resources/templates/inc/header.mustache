@@ -36,8 +36,32 @@
         <h2>명령어 추가</h2>
         <label><input type="text" name="cmnd" placeholder="명령어"></label>
         <label><textarea name="reply" placeholder="답변 메시지"></textarea></label>
-        <a href="#" class="btn_add">등록하기</a>
+        <a href="" class="btn_add">등록하기</a>
     </div>
     <a href="#" class="btn_close">닫기</a>
 </div>
 
+<script>
+    $(document).ready(function() {
+        $(".btn_add").on("click", function(e) {
+            var data = {
+                command : $('input[name=cmnd]').val(),
+                content : $('textarea[name=reply]').val()
+            };
+
+            $.ajax({
+                type: 'POST',
+                url: '/api/command/save',
+                data: JSON.stringify(data),
+                dataType: 'json',
+                contentType: 'application/json; charset=utf-8'
+            }).done(function () {
+                alert('등록 되었습니다.');
+                //window.location.href = '/command/list';
+            }).fail(function (error) {
+                alert(JSON.stringify(error));
+            });
+        });
+    });
+
+</script>
