@@ -93,6 +93,32 @@ public class ReplyService {
                     .content("!명령어를 쳐서 명령어 리스트를 확인 후 사용해보세요.")
                     .build();
 
+        } else if (msg.startsWith("!추가 ")) {
+            msg = msg.replace("!추가 ", "");
+            int sepIdx = msg.indexOf(" ");
+            if(sepIdx > 0) {
+                String parseCommand = msg.substring(0, sepIdx);
+                String parseContent = msg.substring(sepIdx+1);
+
+//                log.info(parseCommand);
+//                log.info(parseContent);
+
+                Command findCmd = commandRepository.findByCommand(parseCommand);
+
+                if(findCmd == null) {
+                    Command saveCmd = Command.builder()
+                            .command(parseCommand)
+                            .content(parseContent)
+                            .signalYn("N")
+                            .title(parseCommand)
+                            .build();
+
+                    commandRepository.save(saveCmd);
+                }
+
+            }
+        } else if (msg.startsWith("!삭제")) {
+
         }
 
         return dto;
@@ -107,16 +133,16 @@ public class ReplyService {
         ResponseCommandDto commandDto = commandRepository.findByKeyword(msg);
 
         if(commandDto != null) {
-            String title = commandDto.getTitle();
+            String command = commandDto.getCommand();
             String content = commandDto.getContent();
 
-            if(title.equals("무복")) {
+            if(command.equals("무복")) {
                 content = sender + " " + content;
             }
 
             dto = dto.toBuilder()
                     .success(true)
-                    .title(title)
+                    .title(command)
                     .content(content)
                     .build();
         }

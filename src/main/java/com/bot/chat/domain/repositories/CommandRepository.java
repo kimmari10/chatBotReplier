@@ -8,4 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 public interface CommandRepository extends JpaRepository<Command, Long> {
     @Query("SELECT c FROM Command c WHERE :keyword LIKE CONCAT('%',c.command,'%') ORDER BY c.id DESC")
     ResponseCommandDto findByKeyword(String keyword);
+
+    @Query("SELECT c FROM Command c WHERE c.command = :command")
+    Command findByCommand(String command);
 }
