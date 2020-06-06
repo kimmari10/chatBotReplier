@@ -100,9 +100,6 @@ public class ReplyService {
                 String parseCommand = msg.substring(0, sepIdx);
                 String parseContent = msg.substring(sepIdx+1);
 
-//                log.info(parseCommand);
-//                log.info(parseContent);
-
                 Command findCmd = commandRepository.findByCommand(parseCommand);
 
                 if(findCmd == null) {
@@ -118,7 +115,16 @@ public class ReplyService {
 
             }
         } else if (msg.startsWith("!삭제")) {
+            int sepIdx = msg.indexOf(" ");
+            if(sepIdx > 0) {
+                String parseCommand = msg.substring(0, sepIdx);
 
+                Command findCmd = commandRepository.findByCommand(parseCommand);
+
+                if (findCmd != null) {
+                    commandRepository.delete(findCmd);
+                }
+            }
         }
 
         return dto;
