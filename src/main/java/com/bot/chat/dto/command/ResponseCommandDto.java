@@ -22,4 +22,14 @@ public class ResponseCommandDto {
         this.content = entity.getContent();
         this.signalYn = entity.getSignalYn();
     }
+
+    public Command toEntity() {
+        return Command.builder()
+                .title(title)
+                .command(command)
+                .content(content)
+                .signalYn(signalYn)
+                .build();
+    }
+
 }

@@ -2,10 +2,7 @@ package com.bot.chat.service;
 
 import com.bot.chat.domain.Command;
 import com.bot.chat.domain.repositories.CommandRepository;
-import com.bot.chat.dto.command.CommandSaveRequestDto;
-import com.bot.chat.dto.command.RequestDto;
-import com.bot.chat.dto.command.ResponseCommandDto;
-import com.bot.chat.dto.command.ResponseDto;
+import com.bot.chat.dto.command.*;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.jsoup.Jsoup;
@@ -90,7 +87,9 @@ public class ReplyService {
             dto = dto.toBuilder()
                     .success(true)
                     .title("도움말")
-                    .content("!명령어를 쳐서 명령어 리스트를 확인 후 사용해보세요.")
+                    .content("!명령어 - 단어 확인")
+                    .content("!추가 [단어] [메세지]")
+                    .content("!삭제 [단어]")
                     .build();
 
         } else if (msg.startsWith("!추가 ")) {
@@ -166,6 +165,10 @@ public class ReplyService {
         commandRepository.save(cmd);
     }
 
+    public void delete(CommandDeleteRequestDto dto) {
+        ResponseCommandDto cmd = commandRepository.findByKeyword(dto.getCommand());
+        commandRepository.delete(cmd.toEntity());
+    }
 
     public List<ResponseCommandDto> getCommandList() {
         return commandRepository.findAll()
