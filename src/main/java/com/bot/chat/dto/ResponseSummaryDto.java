@@ -1,7 +1,6 @@
 package com.bot.chat.dto;
 
 
-import com.bot.chat.domain.Command;
 import com.bot.chat.domain.Message;
 import com.bot.chat.domain.Room;
 import com.bot.chat.domain.Sender;
