@@ -1,7 +1,7 @@
 @charset "utf-8";
 @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Gothic:wght@400;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
-@import url('http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css');
+@import url('http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css');
 
 
 
@@ -128,18 +128,37 @@ body.mobile .addCmnd {background: url(/img/bg_m.jpg) center top repeat-y fixed #
 *************************************************/
 /* 메인 */
 .main {background: #fff;}
-.main .menu li {width: 100vw; height: 30vh; padding: 2rem 5vw; display: flex; align-items: center; justify-content: center;}
-.main .menu li:nth-child(3) {height: calc(40vh - 60px);}
-.main .menu li a {display: block; width: 100%; height: 30vh;}
-.main .menu li h2 {position: relative; display: inline-block; width: 10rem; padding-top: 10px; font-family: "Black Han Sans"; font-size: 2.2rem; vertical-align: middle; text-align: left;}
-.main .menu li h2:before {content: ""; display: block; position: absolute; top:0; left: 0; width:3rem; height:4px; background: #222;}
-.main .menu li .img {display: inline-block; width: 10rem; height: 10rem; border-radius: 20rem; font-size:0; box-shadow: 5px 10px 10px rgba(0, 0, 0, .05); vertical-align: middle;}
-.main .menu li:nth-child(1) .img {background: #f1c40f;}
-.main .menu li:nth-child(2) .img {background: #594941;}
-.main .menu li:nth-child(3) .img {background: #fff;}
+.main .menu li {position: relative; width: 50vw; padding: 5vw;}
+.main .menu li a {width: 100vw;}
+.main .menu li h2 {position: relative; display: inline-block; padding-top: 20px; font-family: "Black Han Sans"; font-size: 2.4rem; vertical-align: middle; text-align: left; line-height: 100%;}
+.main .menu li .txt {display: block; margin-top:5px; font-size: 0.8rem;}
+.main .menu li .icon {position: absolute; bottom: 5vw; right: 5vw; font-size: 0; line-height: 100%;}
+.main .menu li h2:before {display: block; position: absolute; top: 0; left: 0; font-size: 0.8rem; font-weight: 600; line-height: 0.8rem;}
+.main .menu li:nth-child(1) {width: 100vw; height: 45vh; background: url(/img/bg_main_cmnd.jpg) no-repeat right bottom/70% #f4cf3f;}
+.main .menu li:nth-child(2) {float: left; height: calc(55vh - 60px); background: url(/img/bg_main_msg.jpg) no-repeat 5rem 9.5rem/90% #472f1e;}
+.main .menu li:nth-child(3) {float: left; height: calc(55vh - 60px); background: url(/img/bg_main_setting.jpg) no-repeat 3rem 10rem/120% #fff;}
+.main .menu li:nth-child(1) h2 {color: #bf6423;}
+.main .menu li:nth-child(1) h2:before {content: "01_"; color: #fff;}
+.main .menu li:nth-child(1) h2 b {color: #222; font-weight: normal;}
+.main .menu li:nth-child(1) h2 i {display: block; color: #fff; font-style: normal; text-transform: uppercase; font-size: 2rem; font-family: "Black Han Sans";}
+.main .menu li:nth-child(1) .txt {color: #fff;}
+.main .menu li:nth-child(1) .icon {bottom: 6.5vw; right: 5vw; display: block; width: 5rem; height: 5rem; border-radius:10rem; background: #252525; text-align: center; color: #fff; line-height: 5rem; font-size: 0.8rem;}
+.main .menu li:nth-child(1) .icon i {position: relative; z-index:2; color: #fff; font-style: normal;}
+.main .menu li:nth-child(2) h2 {color: #fff;}
+.main .menu li:nth-child(2) h2::first-letter {color: #f4cf3f;}
+.main .menu li:nth-child(3) h2::first-letter {color: #bf6423;}
+.main .menu li:nth-child(2) h2:before {content: "02_"; color: #705725;}
+.main .menu li:nth-child(3) h2:before {content: "03_"; color: #ecd5ca;}
+.main .menu li:nth-child(1) .txt {color: #fff; margin-top: 0;}
+.main .menu li:nth-child(2) .txt {color: #fff;}
+.main .menu li:nth-child(3) .txt {color: #222;}
+.main .menu li:nth-child(1) .icon:before {content: '\f27b'; font-family: "FontAwesome"; font-size: 34px; color: #4b4b4b; position: absolute; width: 100%; left: 0;}
+.main .menu li:nth-child(2) .icon:before {content: '\f0e6'; font-family: "FontAwesome"; font-size: 23px; color: #fff;}
+.main .menu li:nth-child(3) .icon:before {content: '\f085'; font-family: "FontAwesome"; font-size: 23px; color: #222;}
 @media screen and (min-width: 1200px) {
-    .main .menu li {float: left; width: 30vw;text-align: center;}
-    .main .menu li:nth-child(3) {height: calc(40vh - 90px);}
+    .main {background: none;}
+    .main .menu {width: 90vw; margin: auto; display: flex; align-items: center; justify-content: center;}
+    .main .menu li {float: none!important; width:30%!important;  height: 70vh!important;}
 }
 
 
