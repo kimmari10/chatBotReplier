@@ -58,13 +58,12 @@ public class InfoService {
         messageRepository.save(messageEntity);
     }
 
-    public List<ResponseSummaryDto> getSummary() {
-        ResponseSummaryDto.builder()
+    public ResponseSummaryDto getSummary() {
+
+        return ResponseSummaryDto.builder()
                 .messages(messageRepository.findAll())
                 .senders(senderRepository.findAll())
                 .rooms(roomRepository.findAll())
                 .build();
-
-        return null;
     }
 }

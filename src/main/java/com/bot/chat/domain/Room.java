@@ -22,7 +22,7 @@ public class Room {
 
     private String groupChatYn;
 
-    @OneToMany(mappedBy = "room")
+    @OneToMany(mappedBy = "room", fetch = FetchType.LAZY)
     @Singular("sender")
     private List<Sender> senders = new ArrayList<>();
 

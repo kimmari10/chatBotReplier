@@ -18,7 +18,7 @@ public class Message extends TimeEntity{
 
     private String delYn = "N";
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Sender sender;
 
     @Builder(toBuilder = true)

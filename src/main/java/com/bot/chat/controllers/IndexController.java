@@ -29,10 +29,10 @@ public class IndexController {
 
     @GetMapping("/index")
     public String summary(Model model) {
-        List<ResponseSummaryDto> list = infoService.getSummary();
+        ResponseSummaryDto list = infoService.getSummary();
 
         model.addAttribute("summary", list);
-        return "summary";
+        return "dashboard";
     }
 
     @GetMapping("/command/list")

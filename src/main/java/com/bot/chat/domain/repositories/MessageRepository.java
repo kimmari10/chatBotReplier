@@ -1,11 +1,13 @@
 package com.bot.chat.domain.repositories;
 
 import com.bot.chat.domain.Message;
+import com.bot.chat.dto.ResponseSummaryDto;
 import com.bot.chat.dto.message.ResponseMessageDto;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface MessageRepository extends JpaRepository<Message, Long> {
 
