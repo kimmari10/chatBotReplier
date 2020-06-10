@@ -29,9 +29,9 @@ public class IndexController {
 
     @GetMapping("/index")
     public String summary(Model model) {
-        ResponseSummaryDto list = infoService.getSummary();
+        ResponseSummaryDto summary = infoService.getSummary();
 
-        model.addAttribute("summary", list);
+        model.addAttribute("summary", summary);
         return "dashboard";
     }
 
