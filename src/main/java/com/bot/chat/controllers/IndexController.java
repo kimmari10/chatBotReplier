@@ -27,7 +27,7 @@ public class IndexController {
         return "index";
     }
 
-    @GetMapping("/index")
+    @GetMapping("/dashboard")
     public String summary(Model model) {
         ResponseSummaryDto summary = infoService.getSummary();
 
