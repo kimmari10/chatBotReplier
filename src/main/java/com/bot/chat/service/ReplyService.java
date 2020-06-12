@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -165,9 +166,12 @@ public class ReplyService {
         commandRepository.save(cmd);
     }
 
-    public void delete(CommandDeleteRequestDto dto) {
-        ResponseCommandDto cmd = commandRepository.findByKeyword(dto.getCommand());
-        commandRepository.delete(cmd.toEntity());
+    public void delete(Long id) {
+        Optional<Command> cmd = commandRepository.findById(id);
+        log.info(cmd.get().toString());
+        if(cmd.isPresent()) {
+            commandRepository.delete(cmd.get());
+        }
     }
 
     public List<ResponseCommandDto> getCommandList() {

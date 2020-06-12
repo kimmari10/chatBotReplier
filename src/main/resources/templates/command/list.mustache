@@ -124,9 +124,31 @@
                     ○ 현재(22시), 전국이 구름많고, 황해도 부근에서 비구름대가 시속 45km로 동남동진하고 있습니다.
                 </div>
                 <div class="sign">N</div>
+                <div class="btnDel">X</div>
             </li>
         </ul>
     </section>
 
 </div>
 {{>inc/footer}}
+
+<script>
+    $(document).ready(function() {
+        $(".no").on("click", function(e) {
+            if(confirm("삭제 하시겠습니까?")) {
+                var id = $(this).text();
+
+                $.ajax({
+                    type: 'DELETE',
+                    url: '/api/command/delete/' + id,
+                }).done(function () {
+                    alert('삭제 되었습니다.');
+                    window.location.href = '/command/list';
+                }).fail(function (error) {
+                    alert(JSON.stringify(error));
+                });
+            }
+        });
+    });
+
+</script>
