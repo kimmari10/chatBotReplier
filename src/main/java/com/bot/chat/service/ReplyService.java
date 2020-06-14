@@ -117,7 +117,7 @@ public class ReplyService {
         } else if (msg.startsWith("!삭제")) {
             int sepIdx = msg.indexOf(" ");
             if(sepIdx > 0) {
-                String parseCommand = msg.substring(0, sepIdx);
+                String parseCommand = msg.substring(sepIdx+1);
 
                 Command findCmd = commandRepository.findByCommand(parseCommand);
 
