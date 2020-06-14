@@ -128,19 +128,20 @@ body.mobile .addCmnd {background: url(/img/bg_m.jpg) center top repeat-y fixed #
 *************************************************/
 /* 메인 */
 .main {background: #fff;}
-.main .menu li {position: relative; width: 50vw; padding: 5vw;}
+.main .menu li {position: relative; width: 50%; padding: 5vw;}
 .main .menu li a {width: 100vw;}
-.main .menu li h2 {position: relative; display: inline-block; padding-top: 20px; font-family: "Black Han Sans"; font-size: 2.4rem; vertical-align: middle; text-align: left; line-height: 100%;}
-.main .menu li .txt {display: block; margin-top:5px; font-size: 0.8rem;}
+.main .menu li h2 {position: relative; display: inline-block; width: 70%; padding-top: 20px; font-family: "Black Han Sans"; font-size: 2.4rem; vertical-align: middle; text-align: left; line-height: 100%;}
+.main .menu li h2 i {display: none; font-style: normal; color: #fff; text-transform: uppercase; font-size: 2rem; font-family: "Black Han Sans";}
+.main .menu li .txt {display: block; margin-top:5px; font-size: 0.9rem;}
 .main .menu li .icon {position: absolute; bottom: 5vw; right: 5vw; font-size: 0; line-height: 100%;}
 .main .menu li h2:before {display: block; position: absolute; top: 0; left: 0; font-size: 0.8rem; font-weight: 600; line-height: 0.8rem;}
-.main .menu li:nth-child(1) {width: 100vw; height: 45vh; background: url(/img/bg_main_cmnd.jpg) no-repeat right bottom/70% #f4cf3f;}
-.main .menu li:nth-child(2) {float: left; height: calc(55vh - 60px); background: url(/img/bg_main_msg.jpg) no-repeat 5rem 9.5rem/90% #472f1e;}
-.main .menu li:nth-child(3) {float: left; height: calc(55vh - 60px); background: url(/img/bg_main_setting.jpg) no-repeat 3rem 10rem/120% #fff;}
+.main .menu li:nth-child(1) {width: 100%; height: 45vh; background: url(/img/bg_main_cmnd.jpg) no-repeat right bottom/270px #f4cf3f;}
+.main .menu li:nth-child(2) {float: left; height: calc(55vh - 60px); background: url(/img/bg_main_msg.jpg) no-repeat right bottom/170px #472f1e;}
+.main .menu li:nth-child(3) {float: left; height: calc(55vh - 60px); background: url(/img/bg_main_setting.jpg) no-repeat right bottom/170px #fff;}
 .main .menu li:nth-child(1) h2 {color: #bf6423;}
 .main .menu li:nth-child(1) h2:before {content: "01_"; color: #fff;}
 .main .menu li:nth-child(1) h2 b {color: #222; font-weight: normal;}
-.main .menu li:nth-child(1) h2 i {display: block; color: #fff; font-style: normal; text-transform: uppercase; font-size: 2rem; font-family: "Black Han Sans";}
+.main .menu li:nth-child(1) h2 i {display: block;}
 .main .menu li:nth-child(1) .txt {color: #fff;}
 .main .menu li:nth-child(1) .icon {bottom: 6.5vw; right: 5vw; display: block; width: 5rem; height: 5rem; border-radius:10rem; background: #252525; text-align: center; color: #fff; line-height: 5rem; font-size: 0.8rem;}
 .main .menu li:nth-child(1) .icon i {position: relative; z-index:2; color: #fff; font-style: normal;}
@@ -155,10 +156,24 @@ body.mobile .addCmnd {background: url(/img/bg_m.jpg) center top repeat-y fixed #
 .main .menu li:nth-child(1) .icon:before {content: '\f27b'; font-family: "FontAwesome"; font-size: 34px; color: #4b4b4b; position: absolute; width: 100%; left: 0;}
 .main .menu li:nth-child(2) .icon:before {content: '\f0e6'; font-family: "FontAwesome"; font-size: 23px; color: #fff;}
 .main .menu li:nth-child(3) .icon:before {content: '\f085'; font-family: "FontAwesome"; font-size: 23px; color: #222;}
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 768px) {
     .main {background: none;}
-    .main .menu {width: 90vw; margin: auto; display: flex; align-items: center; justify-content: center;}
-    .main .menu li {float: none!important; width:30%!important;  height: 70vh!important;}
+    .main .menu {width: 94vw; margin: auto;}
+    .main .menu li {border-radius: 1rem; box-shadow: 0 1px 10px rgba(0, 0, 0, .12);}
+    .main .menu li h2 {font-size: 2.6rem;}
+    .main .menu li h2:before {font-size: 1rem;}
+    .main .menu li h2 i {display: block;}
+    .main .menu li:nth-child(3) h2 i {color: #333;}
+    .main .menu li {margin: 2vh 0 0; padding: 4vw;}
+    .main .menu li:nth-child(1) {float: left; width: 49%; height: calc(92vh - 60px); margin-right:2%;}
+    .main .menu li:nth-child(2) {width: 49%; height: calc(48vh - 60px);}
+    .main .menu li:nth-child(3) {width: 49%; height: calc(48vh - 60px);}
+}
+@media screen and (min-width: 1024px) {
+    .main .menu {width: 90vw; height: calc(95vh - 90px); display: flex; align-items: center; justify-content: center;}
+    .main .menu li h2 {font-size: 2.6rem;}
+    .main .menu li {float: none!important; width:calc(96% / 3)!important; height: 50vh!important; margin: 0 2% 0 0; padding: 4vw 2vw}
+    .main .menu li:nth-child(3) {margin-right: 0;}
 }
 
 
