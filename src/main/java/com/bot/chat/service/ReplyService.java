@@ -111,6 +111,10 @@ public class ReplyService {
                             .build();
 
                     commandRepository.save(saveCmd);
+                    dto = dto.toBuilder()
+                            .success(true)
+                            .content("추가되었습니다.")
+                            .build();
                 }
 
             }
@@ -123,6 +127,10 @@ public class ReplyService {
 
                 if (findCmd != null) {
                     commandRepository.delete(findCmd);
+                    dto = dto.toBuilder()
+                            .success(true)
+                            .content("삭제되었습니다.")
+                            .build();
                 }
             }
         }
