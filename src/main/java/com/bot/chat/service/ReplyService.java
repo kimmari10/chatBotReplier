@@ -113,7 +113,7 @@ public class ReplyService {
                     commandRepository.save(saveCmd);
                     dto = dto.toBuilder()
                             .success(true)
-                            .content("추가되었습니다.")
+                            .content("["+parseCommand + "] 추가되었습니다.")
                             .build();
                 }
 
@@ -129,7 +129,7 @@ public class ReplyService {
                     commandRepository.delete(findCmd);
                     dto = dto.toBuilder()
                             .success(true)
-                            .content("삭제되었습니다.")
+                            .content("["+parseCommand + "] 삭제되었습니다.")
                             .build();
                 }
             }
