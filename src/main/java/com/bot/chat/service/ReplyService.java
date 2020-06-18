@@ -176,8 +176,7 @@ public class ReplyService {
 
     public void delete(Long id) {
         Optional<Command> cmd = commandRepository.findById(id);
-        
-        //TODO orElse를 사용하자
+
         if(cmd.isPresent()) {
             commandRepository.delete(cmd.get());
         }
