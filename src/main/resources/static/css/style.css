@@ -6,8 +6,8 @@
 
 
 /* browser initialize : 브라우저 초기화 */
-html, body, div, span, object, iframe, h1, h2, h3, h4, p, a, code, em, img, strong, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video, hr, input, select, textarea, button {margin:0; padding:0; border:none; list-style:none;  font-family:"Nanum Gothic","tahoma","malgun gothic","san-serif"; background:transparent; word-break: keep-all; word-wrap: break-word;}
-img, header, nav, section, article, aside, i, a, :before, :after {transition: all 0.3s ease .05s; font-family:'Nanum Gothic', sans-serif; color: #222; }
+html, body, div, object, iframe, h1, h2, h3, h4, p, a, code, em, img, strong, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video, hr, input, select, textarea, button {margin:0; padding:0; border:none; list-style:none;  font-family:"Nanum Gothic","tahoma","malgun gothic","san-serif"; background:transparent; word-break: keep-all; word-wrap: break-word;}
+img, header, nav, section, article, aside, a, :before, :after {transition: all 0.3s ease .05s; font-family:'Nanum Gothic', sans-serif; color: #222; }
 a, a:hover {cursor:pointer; text-decoration:none; color: #222;}
 table {border-collapse:collapse; border-spacing:0; }
 input[type=text], input[type=password], input[type=number], input[type=file], select, textarea {width: 100%; color: #222; font-size: 18px; padding: 0.8rem; background: #fff; border: 1px solid #594941; border-radius: 0; vertical-align: middle; -webkit-appearance: none;}
@@ -23,7 +23,7 @@ body.mobile {background: url(/img/bg_m.jpg) center top repeat-y #fefefe;}
                       layout
 *************************************************/
 header {height: 60px; border-bottom: 1px solid #ebebeb; background: #fff;}
-header .box {position: relative; width:90vw; margin:auto;}
+header .box {position: relative; width:90%; margin:auto;}
 header h1 {float: left; margin-top: 13px; font-size: 0.8rem;}
 header h1 .appNm {display: inline-block; background: #f1c40f; margin-right: 5px; font-weight: 700;}
 header h1 .tit {display: block; margin-top: 2px; font-family: "Black Han Sans"; font-size: 1.6rem;}
@@ -127,53 +127,50 @@ body.mobile .addCmnd {background: url(/img/bg_m.jpg) center top repeat-y fixed #
                       contents
 *************************************************/
 /* 메인 */
-.main {background: #fff;}
-.main .menu li {position: relative; width: 50%; padding: 5vw;}
-.main .menu li a {width: 100vw;}
-.main .menu li h2 {position: relative; display: inline-block; width: 70%; padding-top: 20px; font-family: "Black Han Sans"; font-size: 2.4rem; vertical-align: middle; text-align: left; line-height: 100%;}
-.main .menu li h2 i {display: none; font-style: normal; color: #fff; text-transform: uppercase; font-size: 2rem; font-family: "Black Han Sans";}
-.main .menu li .txt {display: block; margin-top:5px; font-size: 0.9rem;}
-.main .menu li .icon {position: absolute; bottom: 5vw; right: 5vw; font-size: 0; line-height: 100%;}
-.main .menu li h2:before {display: block; position: absolute; top: 0; left: 0; font-size: 0.8rem; font-weight: 600; line-height: 0.8rem;}
-.main .menu li:nth-child(1) {width: 100%; height: 45vh; background: url(/img/bg_main_cmnd.jpg) no-repeat right bottom/270px #f4cf3f;}
-.main .menu li:nth-child(2) {float: left; height: calc(55vh - 60px); background: url(/img/bg_main_msg.jpg) no-repeat right bottom/170px #472f1e;}
-.main .menu li:nth-child(3) {float: left; height: calc(55vh - 60px); background: url(/img/bg_main_setting.jpg) no-repeat right bottom/170px #fff;}
-.main .menu li:nth-child(1) h2 {color: #bf6423;}
-.main .menu li:nth-child(1) h2:before {content: "01_"; color: #fff;}
-.main .menu li:nth-child(1) h2 b {color: #222; font-weight: normal;}
-.main .menu li:nth-child(1) h2 i {display: block;}
-.main .menu li:nth-child(1) .txt {color: #fff;}
-.main .menu li:nth-child(1) .icon {bottom: 6.5vw; right: 5vw; display: block; width: 5rem; height: 5rem; border-radius:10rem; background: #252525; text-align: center; color: #fff; line-height: 5rem; font-size: 0.8rem;}
-.main .menu li:nth-child(1) .icon i {position: relative; z-index:2; color: #fff; font-style: normal;}
-.main .menu li:nth-child(2) h2 {color: #fff;}
-.main .menu li:nth-child(2) h2::first-letter {color: #f4cf3f;}
-.main .menu li:nth-child(3) h2::first-letter {color: #bf6423;}
-.main .menu li:nth-child(2) h2:before {content: "02_"; color: #705725;}
-.main .menu li:nth-child(3) h2:before {content: "03_"; color: #ecd5ca;}
-.main .menu li:nth-child(1) .txt {color: #fff; margin-top: 0;}
-.main .menu li:nth-child(2) .txt {color: #fff;}
-.main .menu li:nth-child(3) .txt {color: #222;}
-.main .menu li:nth-child(1) .icon:before {content: '\f27b'; font-family: "FontAwesome"; font-size: 34px; color: #4b4b4b; position: absolute; width: 100%; left: 0;}
-.main .menu li:nth-child(2) .icon:before {content: '\f0e6'; font-family: "FontAwesome"; font-size: 23px; color: #fff;}
-.main .menu li:nth-child(3) .icon:before {content: '\f085'; font-family: "FontAwesome"; font-size: 23px; color: #222;}
+.main h2 {position: relative; display: inline-block; font-family: "Black Han Sans"; vertical-align: middle; text-align: left; line-height: 105%;}
+.main h2:before {display: block; position: absolute; font-size: 0.9rem; font-weight: 600; line-height: 0.8rem;}
+.main .txt {display: block; font-size: 0.85rem; line-height:130%;}
+
+.main .cmndBox {position: relative; padding: 5%; width: 100%; height: 45vh; background: url(/img/bg_main_cmnd.jpg) no-repeat right bottom/270px #fff;}
+.main .cmndBox h2 { padding-top: 20px; font-size: 2.4rem;}
+.main .cmndBox h2:before {content: "01_"; top: 0; left: 0;}
+.main .cmndBox h2 b {color: #222; font-weight: normal; text-decoration: underline;}
+.main .cmndBox h2 i {font-style: normal; color: #f4cf3f; text-decoration: underline;}
+.main .cmndBox h2 span {display: block; margin-top: 2px; text-transform: uppercase; font-size: 2rem; font-family: "Black Han Sans"; color: #222;}
+.main .cmndBox h2 span i {color:#643514; text-decoration: none;}
+.main .cmndBox .txt {margin-top: 8px;}
+.main .cmndBox .btn_cmnd {position: absolute; bottom: 0; left: 0; width: 90%; background: #f4cf3f; margin: 5vw; padding: 0.8rem 0 0.6rem; border-radius:0.5rem; color: #fff; font-family: "Black Han Sans"; font-size: 1.4rem; text-align: center; text-decoration: underline;}
+
+.main .otherBox {height:calc(55vh - 60px); padding: 3vw 5%; background: url(/img/bg_main_other.jpg) center top/cover no-repeat;}
+.main .otherBox > a {position: relative; float: left; width: 47.2%; height: calc(50vh - 60px); padding-left: 4%; background: rgba(255,255,255,0.8); border-radius: 0.5rem;}
+.main .otherBox > a h2 {width: 60%; padding-top: 9.2vw; font-size: 2.3rem;}
+.main .otherBox > a h2::first-letter {color: #bf6423;}
+.main .otherBox > a .txt {margin-top: 15px; color: #222;}
+.main .otherBox > a .icon {position: absolute; bottom: 7vw; right: 5vw; font-size: 0; line-height: 100%;}
+.main .otherBox > a .icon:before {font-family: "FontAwesome"; color: #222;}
+.main .otherBox > a.msgBox {margin-right:5.6%;}
+.main .otherBox > a.msgBox h2:before, .main .otherBox > a.setBox h2:before { top: 3vw; left: -8.5vw; width: 14vw; padding:0.1rem 0; background:#333; border-radius: 0 3px 3px 0; text-align: center; color: #fff; text-indent: 2vw;}
+.main .otherBox > a.msgBox h2:before {content: "02_";}
+.main .otherBox > a.setBox h2:before {content: "03_";}
+.main .otherBox > a.msgBox .icon:before {content: '\f0e6'; font-size: 3rem;}
+.main .otherBox > a.setBox .icon:before {content: '\f085'; font-size: 2.6rem;}
+@media screen and (min-width: 640px) {
+    .main .txt {font-size: 1rem; line-height:130%;}
+    .main h2:before {font-size: 1.2rem;}
+    .main .cmndBox {background-size:420px;}
+    .main .cmndBox h2 { padding-top: 20px; font-size: 2.9rem;}
+    .main .cmndBox h2 span {font-size: 2.4rem;}
+    .main .cmndBox .btn_cmnd {font-size: 1.6rem;}
+    .main .otherBox > a h2 {width: 40%; padding-top: 9.2vw; font-size: 2.7rem;}
+    .main .otherBox > a.msgBox h2:before, .main .otherBox > a.setBox h2:before {padding: 0.2rem 0;}
+    .main .otherBox > a.msgBox .icon:before {font-size: 4rem;}
+    .main .otherBox > a.setBox .icon:before {font-size: 3.8rem;}
+}
 @media screen and (min-width: 768px) {
-    .main {background: none;}
-    .main .menu {width: 94vw; margin: auto;}
-    .main .menu li {border-radius: 1rem; box-shadow: 0 1px 10px rgba(0, 0, 0, .12);}
-    .main .menu li h2 {font-size: 2.6rem;}
-    .main .menu li h2:before {font-size: 1rem;}
-    .main .menu li h2 i {display: block;}
-    .main .menu li:nth-child(3) h2 i {color: #333;}
-    .main .menu li {margin: 2vh 0 0; padding: 4vw;}
-    .main .menu li:nth-child(1) {float: left; width: 49%; height: calc(92vh - 60px); margin-right:2%;}
-    .main .menu li:nth-child(2) {width: 49%; height: calc(48vh - 60px);}
-    .main .menu li:nth-child(3) {width: 49%; height: calc(48vh - 60px);}
+    .main .cmndBox {background-size:450px;}
 }
 @media screen and (min-width: 1024px) {
-    .main .menu {width: 90vw; height: calc(95vh - 90px); display: flex; align-items: center; justify-content: center;}
-    .main .menu li h2 {font-size: 2.6rem;}
-    .main .menu li {float: none!important; width:calc(96% / 3)!important; height: 50vh!important; margin: 0 2% 0 0; padding: 4vw 2vw}
-    .main .menu li:nth-child(3) {margin-right: 0;}
+
 }
 
 
