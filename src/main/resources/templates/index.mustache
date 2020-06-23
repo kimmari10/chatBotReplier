@@ -5,19 +5,89 @@
         <h2><b>명령어</b><i> 리스트</i><span><i>command</i> list</span></h2>
         <span class="txt">카카오 오픈채팅방 대화시<br>자동답변등록된 명령어 키워드 목록</span>
         <a class="btn_cmnd" href="/command/list">바로가기</a>
-    </div>
+    </div><!-- cmndBox -->
     <div class="otherBox">
         <a class="msgBox" href="/message/list">
             <h2>메시지 리스트</h2>
             <span class="txt">카카오 오픈쳇방의<br>전체 메시지 목록</span>
+            <button class="btn_go">바로가기</button>
             <span class="icon"></span>
         </a>
         <a class="setBox" href="/dashboard">
             <h2>환경 설정</h2>
             <span class="txt">그래프,<br>통계관련 정보</span>
+            <button class="btn_go">바로가기</button>
             <span class="icon"></span>
         </a>
-    </div>
+    </div><!-- otherBox -->
+    <div class="latestBox">
+        <div class="latest">
+            <h2>최근 명령어 리스트</h2>
+            <ul class="cmnd-list">
+                <!-- 디자인확인용 샘플데이터 -->
+                <li>
+                    <div class="cmnd">날씨</div>
+                    <div class="no">1</div>
+                    <div class="msg">
+                        전라남도 나주시 산포면
+                    </div>
+                    <div class="sign">N</div>
+                </li>
+                <li>
+                    <div class="cmnd">공지사항</div>
+                    <div class="no">2</div>
+                    <div class="msg">
+                        ○ 현재(22시), 전국이 구름많고, 황해도 부근에서 비구름대가 시속 45km로 동남동진하고 있습니다.
+                    </div>
+                    <div class="sign">Y</div>
+                </li>
+                <li>
+                    <div class="cmnd">날씨</div>
+                    <div class="no">3</div>
+                    <div class="msg">
+                        전라남도 나주시
+                    </div>
+                    <div class="sign">N</div>
+                </li>
+                <li>
+                    <div class="cmnd">날씨</div>
+                    <div class="no">4</div>
+                    <div class="msg">
+                        전라남도 나주시 산포면 매성리 (목요일) 오후 10:00<br>
+                        오늘 늦은 밤부터 서울.경기북부와 강원영서북부 빗방울<br>
+                        ○ 현재(22시), 전국이 구름많고, 황해도 부근에서 비구름대가 시속 45km로 동남동진하고 있습니다.
+                    </div>
+                    <div class="sign">Y</div>
+                </li>
+            </ul>
+        </div>
+        <div class="latest">
+            <h2>최근 메시지 리스트</h2>
+            <ul class="msg-list">
+                <!-- 디자인확인용 샘플데이터 -->
+                <li>
+                    <div class="sender">로아</div>
+                    <div class="msgCon">왜 화가 났어...</div>
+                    <div class="sendDate"><span class="date">2020-05-22</span><span class="time">00:59:49</span></div>
+                </li>
+                <li>
+                    <div class="sender">로아</div>
+                    <div class="msgCon">왜 화가 났어...왜 화가 났어..왜 화가 났어..왜 화가 났어..왜 화가 났어..</div>
+                    <div class="sendDate"><span class="date">2020-05-22</span><span class="time">00:59:49</span></div>
+                </li>
+                <li>
+                    <div class="sender">로아</div>
+                    <div class="msgCon">왜 화가 났어...</div>
+                    <div class="sendDate">[<span class="date">2020-05-22</span><span class="time">00:59:49</span>]</div>
+                </li>
+                <li>
+                    <div class="sender">로아</div>
+                    <div class="msgCon">왜 화가 났어...</div>
+                    <div class="sendDate">[<span class="date">2020-05-22</span><span class="time">00:59:49</span>]</div>
+                </li>
+            </ul>
+        </div>
+    </div><!-- latestBox -->
 </div>
 
 {{>inc/footer}}
