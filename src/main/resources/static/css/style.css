@@ -43,7 +43,7 @@ nav ul li a {position:relative; font-family: "Black Han Sans"; color: #fff;}
 nav ul li a:hover {color: #f1c40f;}
 nav ul li a:hover:after {content: ''; position: absolute; width:50px; height:50px; background: url(/img/ani_imgs.svg) no-repeat -135px 0px/170px 50px;}
 nav.active_nav {transform:translate(0, 0)}
-.contents {padding: 40px 0 50px; }
+.contents {padding: 40px 0 50px;}
 .title {margin-bottom: 1.5rem; text-decoration: underline; font-family: "Black Han Sans"; font-size: 2.2rem; text-align: center;}
 section {width:90vw; margin: auto;}
 
@@ -64,7 +64,7 @@ section {width:90vw; margin: auto;}
     header .btn_navi:before {font-size:2.5rem;}
     header .btn_addCmnd {top: 19px; right: 45px;}
     header .btn_addCmnd:before {font-size:2.5rem;}
-    .contents {padding: 50px 0 70px;}
+    .contents {padding: 50px 0 70px; height: calc(100vh - 90px);}
     .title {position: absolute; top: 24px; left: 50%; width: 30vw; margin-left: -15vw; margin-bottom: 2rem; font-size: 2.7rem;}
 }
 @keyframes smoke {
@@ -181,15 +181,15 @@ body.mobile .addCmnd {background: url(/img/bg_m.jpg) center top repeat-y fixed #
     .main .otherBox > a .icon {bottom: 3vw;}
 }
 @media screen and (min-width: 1200px) {
-    .main {width: 90%; margin: auto; padding-top: 25px}
-    .main .cmndBox {float: left; width:40%; height: 80vh; margin-right: 2%; border: 3px solid #333; background-size: 490px; border-radius: 12px; background-position: center 20px; box-shadow: 0 1px 10px rgba(0, 0, 0, .12);}
+    .main {width: 75%; margin: auto; padding-top: 25px}
+    .main .cmndBox {float: left; width:40%; height: 76vh; margin-right: 2%; border: 3px solid #333; background-size: 490px; border-radius: 12px; background-position: center 20px; box-shadow: 0 1px 10px rgba(0, 0, 0, .12);}
     .main .cmndBox h2 {margin-top: 30vh;}
     .main .cmndBox .btn_cmnd {position:static; display: block; width: 200px; margin: 75px auto 0;}
     .main .otherBox {float: left; width:58%; height: auto; padding: 0; background: none;}
     .main .otherBox > a {width: 50%; height: 37vh; box-shadow: 0 1px 10px rgba(0, 0, 0, .12);}
     .main .otherBox > a.msgBox {margin-right: 0; background: #f4cf3f; border-radius: 12px 0 0 12px;}
     .main .otherBox > a.setBox {background: url(/img/bg_main_other.jpg) 20% center/170% auto no-repeat;  border-radius: 0 12px 12px 0;}
-    .main .otherBox > a h2 {width: 29%; padding-top: 6.5vw; font-size: 2.9rem;}
+    .main .otherBox > a h2 {width: 29%; padding-top: 6vw; font-size: 2.9rem;}
     .main .otherBox > a h2:before {top: 3.7vw; width: 5vw; margin-left: -2.5vw; padding: 0.4rem 0; text-indent: 10px;}
     .main .otherBox > a .txt {margin-top: 10px;}
     .main .otherBox > a .btn_go {font-size: 1.3rem;}
@@ -200,8 +200,8 @@ body.mobile .addCmnd {background: url(/img/bg_m.jpg) center top repeat-y fixed #
     .main .latestBox {display: block; float: left; width: 58%; margin-top: 30px;}
     .main .latestBox .latest {float: left; width: 49%;}
     .main .latestBox .latest:first-child {margin-right: 2%;}
-    .main .latestBox ul {margin-top:6px; padding: 20px; border-radius: 12px; background: #fff; box-shadow: inset 0px 0px 0px 1px rgba(0,0,0,.2), 0 1px 10px rgba(0, 0, 0, .12);}
-    .main .latestBox li {position: relative; height: 7.9vh; border-top: 1px dotted #d0d0d0; overflow-y: hidden;}
+    .main .latestBox ul {margin-top:6px; padding: 17px; border-radius: 12px; background: #fff; box-shadow: inset 0px 0px 0px 1px rgba(0,0,0,.2), 0 1px 10px rgba(0, 0, 0, .12);}
+    .main .latestBox li {position: relative; height: 7.1vh; border-top: 1px dotted #d0d0d0; overflow-y: hidden;}
     .main .latestBox li:first-child {border-top: 0;}
     .main .latestBox .cmnd-list li .cmnd {margin: 0.5rem 0 0 25px; font-size: 1.6rem;}
     .main .latestBox .cmnd-list li .msg {height: 1.5rem; overflow-y: scroll;}
@@ -220,7 +220,7 @@ body.mobile .addCmnd {background: url(/img/bg_m.jpg) center top repeat-y fixed #
 .cmnd-menu li a {display: inline-block; height: 2rem;}
 .cmnd-menu .cmd_all a,
 .cmnd-menu .cmd_general a,
-.cmnd-menu .cmd_system a {position: relative; margin-left: 6px; padding: 0.3rem 0.8rem; border: 1px solid #333; border-radius: 10px;  font-weight: 600; font-size: 0.9rem; z-index: 0;}
+.cmnd-menu .cmd_system a {position: relative; margin-left: 6px; padding: 0.3rem 0.8rem; border: 1px solid #333; border-radius: 7px;  font-weight: 600; font-size: 0.9rem; z-index: 0;}
 .cmnd-menu .cmd_all a.on:before,
 .cmnd-menu .cmd_general a.on:before,
 .cmnd-menu .cmd_system a.on:before {content: ' '; position: absolute; top: 6px; left: 50%; width: 46px; height: 1rem; margin-left:-23px;  background: #f1c40f; z-index: -1;}
@@ -237,12 +237,22 @@ body.mobile .addCmnd {background: url(/img/bg_m.jpg) center top repeat-y fixed #
 .cmnd-list li .cmnd::first-letter {color:#594941;}
 .cmnd-list li .no {position: absolute; top: 8px; left: -10px; width: 25px; height: 25px; background: #f1c40f; border-radius: 2rem; text-align:center; color:#fff; font-weight: 700; line-height: 25px; letter-spacing: -0.5px;}
 .cmnd-list li .msg {font-size: 0.9rem; color: #444; line-height: 160%;}
-.cmnd-list li .sign {font-size:0; }
+.cmnd-list li .sign {font-size:0;}
+.cmnd-list li .btnDel {position: absolute; top:0; right: 0; padding: 0.7rem; cursor: pointer; line-height: 100%;}
 .cmnd-list li.system {background: url(/img/bg_system.svg) no-repeat right bottom #fff;}
 .cmnd-list li.system .sign {position: absolute; bottom: 0; right: 0; padding: 0.7rem 0.7rem 0.3rem 1.2rem; border-radius: 100% 0 0.5em 0; background: #594941; font-size: 0.8rem; font-weight: 700; color:#fff;}
 
+.cmnd-list.cardV + .kwdV_selected {display: none;}
+.cmnd-list.kwdV {float: left; width:58%; margin-right: 5%;}
+.cmnd-list.kwdV li {margin-right: 1rem; padding: 0.3rem 0; border-radius: 5rem; cursor: pointer;}
+.cmnd-list.kwdV li.active {box-shadow: inset 0px 0px 0px 3px #f1c40f;}
+.cmnd-list.kwdV li .cmnd {text-align: center;}
 .cmnd-list.kwdV li > div {display: none;}
 .cmnd-list.kwdV li .cmnd {display: block; margin: 0; border: 0;}
+.cmnd-list.kwdV + .kwdV_selected {display: block; position:relative; float: right; width: 37%;}
+.kwdV_selected h5 {position: relative; text-align: right; font-family: "Black Han Sans"; font-size: 1.7rem; padding-right: 2.9rem;}
+.kwdV_selected h5:after {content: ' '; position: absolute; top: -0.2rem; right: 0; width:2rem; height: 2rem; background:#f1c40f; border-radius: 10rem;}
+.kwdV_selected .detail {height: 45vh; padding:2rem; border-radius: 15px; background: #fff;}
 
 @media screen and (min-width: 768px) {
     .cmnd-menu {text-align: right; margin: -20px 0 15px;}

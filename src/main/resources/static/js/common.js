@@ -7,7 +7,6 @@ $(document).ready(function() {
    setMasonry(".cmnd-list.cardV");
    if(chkMobile() == "Mobile") $("body").addClass("mobile");
 
-
 });
 
 /* active nav(navigation var) : 네비게이션 바 활성화 */
@@ -61,6 +60,7 @@ function viewCmdMenu(target) {
 
    $(target).find("a").on("click", function(e) {
         var liName = $(this).parent().attr("class");
+
         if(liName == "cmd_all") {
             $(list).html(gnrlData);
             $.each(sysIdx, function(i, val) {
@@ -84,6 +84,14 @@ function viewCmdMenu(target) {
             $(list).addClass("kwdV").removeClass("cardV");
             setMnAction(this, ".vt_card a", false);
         }
+
+        $(list).find("li").on("click", function() {
+            $(list).find("li").removeClass("active");
+            $(this).addClass("active");
+            if($(list).hasClass("kwdV")) {
+                $(".kwdV_selected .detail").html($(this).html());
+            }
+        });
 
         function setMnAction(onMn, offMn, masonryYN) {
             $(offMn).removeClass("on");
