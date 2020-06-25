@@ -129,7 +129,7 @@
         </ul>
 
         <div class="kwdV_selected">
-            <h5>카카오 쳇봇</h5>
+            <h5>카카오 쳇봇 명령어 NO.</h5>
             <div class="detail"></div>
         </div>
     </section>
@@ -139,9 +139,9 @@
 
 <script>
     $(document).ready(function() {
-        $(".no").on("click", function(e) {
+        $(".btnDel").on("click", function(e) {
             if(confirm("삭제 하시겠습니까?")) {
-                var id = $(this).text();
+                var id = $(this).parent().find(".no").text();
 
                 $.ajax({
                     type: 'DELETE',

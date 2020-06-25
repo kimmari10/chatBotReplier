@@ -60,36 +60,41 @@ function viewCmdMenu(target) {
 
    $(target).find("a").on("click", function(e) {
         var liName = $(this).parent().attr("class");
-
+        var hasCardV = $(list).hasClass("cardV");
         if(liName == "cmd_all") {
             $(list).html(gnrlData);
             $.each(sysIdx, function(i, val) {
                 $(list).find("li").eq(val).before(sysData[i]);
             });
-            setMnAction(this, ".cmd_general a, .cmd_system a", true);
+            setMnAction(this, ".cmd_general a, .cmd_system a", hasCardV ? true : false);
         }
         if(liName == "cmd_general") {
             $(list).empty().html(gnrlData);
-            setMnAction(this, ".cmd_all a, .cmd_system a", true);
+            setMnAction(this, ".cmd_all a, .cmd_system a", hasCardV ? true : false);
         }
         if(liName == "cmd_system") {
             $(list).empty().html(sysData);
-            setMnAction(this, ".cmd_all a, .cmd_general a", true);
+            setMnAction(this, ".cmd_all a, .cmd_general a", hasCardV ? true : false);
         }
         if(liName == "vt_card") {
             $(list).addClass("cardV").removeClass("kwdV");
             setMnAction(this, ".vt_kwd a", true);
+            $("section").removeClass("cmnd-kwdV");
         }
         if(liName == "vt_kwd") {
             $(list).addClass("kwdV").removeClass("cardV");
             setMnAction(this, ".vt_card a", false);
+            $("section").addClass("cmnd-kwdV");
         }
 
+        $(list).find("li").off("click");
         $(list).find("li").on("click", function() {
+            var detailTarget = ".kwdV_selected .detail";
             $(list).find("li").removeClass("active");
             $(this).addClass("active");
+            $(this).hasClass("system") ? $(detailTarget).addClass("system") : $(detailTarget).removeClass("system");
             if($(list).hasClass("kwdV")) {
-                $(".kwdV_selected .detail").html($(this).html());
+                $(detailTarget).html($(this).html());
             }
         });
 
@@ -101,6 +106,8 @@ function viewCmdMenu(target) {
         }
         e.preventDefault();
    });
+
+
 }
 
 /* set masonry : 문서로딩시 벽돌형식 포지셔닝 세팅 */
