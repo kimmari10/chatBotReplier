@@ -9,13 +9,15 @@
         <!-- 목록 출력 영역 -->
         {{#messages}}
             <li>
-                <div class="sender"><a href="/message/list/{{senderName}}" />{{senderName}}</div>
+                <div class="sender"><a href="/message/list/{{senderName}}">{{senderName}}</a></div>
                 <div class="msgCon">{{content}}</div>
                 <div class="sendDate"><span class="date">{{sendDate}}</span><span class="time">{{sendTime}}</span></div>
             </li>
         {{/messages}}
         </ul>
     </section>
+
+    {{>inc/addCommand}}
 
 </div>
 {{>inc/footer}}

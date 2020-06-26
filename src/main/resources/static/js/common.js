@@ -54,6 +54,8 @@ function viewCmdMenu(target) {
     var gnrlData = $(list).find("li").not(".system");
     var sysData = $(list).find("li").filter(".system"), sysIdx = [];
 
+    $(target).after($(".kwdV_selected"));
+
     $(list).find("li").each(function(i) {
         if($(this).hasClass("system")) sysIdx.push(i);
     });
@@ -90,12 +92,12 @@ function viewCmdMenu(target) {
         $(list).find("li").off("click");
         $(list).find("li").on("click", function() {
             var detailTarget = ".kwdV_selected .detail";
-            $(list).find("li").removeClass("active");
-            $(this).addClass("active");
-            $(this).hasClass("system") ? $(detailTarget).addClass("system") : $(detailTarget).removeClass("system");
             if($(list).hasClass("kwdV")) {
+                $(list).find("li").removeClass("active");
+                $(this).addClass("active");
                 $(detailTarget).html($(this).html());
             }
+            $(this).hasClass("system") ? $(detailTarget).addClass("system") : $(detailTarget).removeClass("system");
         });
 
         function setMnAction(onMn, offMn, masonryYN) {
