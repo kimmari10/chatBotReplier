@@ -80,8 +80,8 @@ function viewCmdMenu(target) {
         }
         if(liName == "vt_card") {
             $(list).addClass("cardV").removeClass("kwdV");
-            setMnAction(this, ".vt_kwd a", true);
             $("section").removeClass("cmnd-kwdV");
+            setMnAction(this, ".vt_kwd a", true);
         }
         if(liName == "vt_kwd") {
             $(list).addClass("kwdV").removeClass("cardV");
