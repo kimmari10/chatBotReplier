@@ -53,6 +53,7 @@ function viewCmdMenu(target) {
     var list = ".cmnd-list";
     var gnrlData = $(list).find("li").not(".system");
     var sysData = $(list).find("li").filter(".system"), sysIdx = [];
+    var detailTarget = ".kwdV_selected .detail";
 
     $(target).after($(".kwdV_selected"));
 
@@ -91,14 +92,20 @@ function viewCmdMenu(target) {
 
         $(list).find("li").off("click");
         $(list).find("li").on("click", function() {
-            var detailTarget = ".kwdV_selected .detail";
             if($(list).hasClass("kwdV")) {
                 $(list).find("li").removeClass("active");
                 $(this).addClass("active");
                 $(detailTarget).html($(this).html());
             }
             $(this).hasClass("system") ? $(detailTarget).addClass("system") : $(detailTarget).removeClass("system");
+            kwdVselectedDelBtn();
         });
+
+        function kwdVselectedDelBtn() {
+            $(detailTarget + " .btnDel").on("click", function() {
+                $(list).find("li.active .btnDel").trigger("click");
+            });
+        }
 
         function setMnAction(onMn, offMn, masonryYN) {
             $(offMn).removeClass("on");
@@ -108,8 +115,6 @@ function viewCmdMenu(target) {
         }
         e.preventDefault();
    });
-
-
 }
 
 /* set masonry : 문서로딩시 벽돌형식 포지셔닝 세팅 */
@@ -121,7 +126,6 @@ function setMasonry(target) {
             masonry(target);
         }, 300);
     });
-
 }
 
 /* align to masonry type : 벽돌형식 포지셔닝 */
